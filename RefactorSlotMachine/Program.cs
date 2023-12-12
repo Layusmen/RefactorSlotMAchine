@@ -9,9 +9,11 @@ namespace Slot_Machine
             //Constants
             const int ROW_COUNT = 3;
             const int COLUMN_COUNT = 3;
+
             
 
-            const decimal INITIAL_BALANCE = 10.00M;
+
+        const decimal INITIAL_BALANCE = 10.00M;
             const decimal BET_AMOUNT = 2.00M;
             const decimal FIRST_WIN = 20.00M;
             const decimal SECOND_WIN = 5.00M;
@@ -53,14 +55,19 @@ namespace Slot_Machine
                     Console.WriteLine();
 
                 }
-
+                //Check if the betting option is valid
+                if (bettingOption != constants.HORIZONTAL_LINE && bettingOption != constants.VERTICAL_LINE && bettingOption != constants.HOR_CENTER_LINE && bettingOption != constants.VER_CENTER_LINE && bettingOption != constants.DIAGONAL_LINE)
+                {
+                    Console.WriteLine("Invalid betting option. Please try again.");
+                    return;
+                }
                 if (balance < BET_AMOUNT)
                 {
                     Console.WriteLine("\nInsufficient funds to play. Game over!");
                     break;
                 }
                 //Horizonal win option
-                if (bettingOption == HORIZONTAL_LINE)
+                if (bettingOption == constants.HORIZONTAL_LINE)
                 {
                     Console.WriteLine("\nYou chose to play all three horizontal lines with $2: Earn $20 for top line wins, $5 for middle or base line wins.");
 
@@ -112,7 +119,7 @@ namespace Slot_Machine
                 }
 
                 //Check for a win on the vertical lines
-                else if (bettingOption == VERTICAL_LINE)
+                else if (bettingOption == constants.VERTICAL_LINE)
                 {
                     Console.WriteLine("\nPlay all vertical lines with $2: Earn $20 for first line wins, $5 for second or third line wins.");
 
@@ -164,7 +171,7 @@ namespace Slot_Machine
                 }
 
                 //Check for a win on the horizontal center line.
-                else if (bettingOption == HOR_CENTER_LINE)
+                else if (bettingOption == constants.HOR_CENTER_LINE)
                 {
                     Console.WriteLine("\nPlay horizontal center line alone with $2: Earn $30.");
 
@@ -204,7 +211,7 @@ namespace Slot_Machine
                 }
 
                 ///Check for a win on the Vertical Center line 
-                else if (bettingOption == VER_CENTER_LINE)
+                else if (bettingOption == constants.VER_CENTER_LINE)
                 {
                     Console.WriteLine("\nYou chose to play vertical center line with $2: Earn $30.");
 
@@ -246,7 +253,7 @@ namespace Slot_Machine
                 }
 
                 //Check for a win on diagonal lines
-                else if (bettingOption == DIAGONAL_LINE)
+                else if (bettingOption == constants.DIAGONAL_LINE)
                 {
                     Console.WriteLine("Play diagonals with $2: Earn $20 for any winning combination, $30 for both.");
 
