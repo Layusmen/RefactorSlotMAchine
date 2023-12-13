@@ -1,5 +1,7 @@
 ﻿using RefactorSlotMachine;
 using System;
+using System.Security.Cryptography.X509Certificates;
+
 namespace Slot_Machine
 {
     static class Program
@@ -7,13 +9,9 @@ namespace Slot_Machine
         static void Main(string[] args)
         {
             //Constants
-            const int ROW_COUNT = 3;
-            const int COLUMN_COUNT = 3;
-
             
 
-
-        const decimal INITIAL_BALANCE = 10.00M;
+            const decimal INITIAL_BALANCE = 10.00M;
             const decimal BET_AMOUNT = 2.00M;
             const decimal FIRST_WIN = 20.00M;
             const decimal SECOND_WIN = 5.00M;
@@ -36,17 +34,19 @@ namespace Slot_Machine
                 logics.BettingCheck();
 
                 //Random Generator
+
                 Random randomPickGenerator = new Random();
                 List<char> slotSymbols = new List<char> { 'A', '1', '5', '7', '$', 'M', '8', '9', '!', '#', 'Q', '&', 'C', 'S', 'Y', 'V', 'W', 'R', 'L', 'F' };
-                char[,] slots_Output = new char[ROW_COUNT, COLUMN_COUNT];
+                char[,] slots_Output = new char[constants.ROW_COUNT, constants.COLUMN_COUNT];
+
 
                 //Display the result
-                Console.WriteLine("\nSlot Machine Results: \n");
+                UIMethods.DisplayResult();
 
                 //Ramdom Pick Generator
-                for (int row = 0; row < ROW_COUNT; row++)
+                for (int row = 0; row < constants.ROW_COUNT; row++)
                 {
-                    for (int col = 0; col < COLUMN_COUNT; col++)
+                    for (int col = 0; col < constants.COLUMN_COUNT; col++)
                     {
                         int randomIndex = randomPickGenerator.Next(slotSymbols.Count);
                         slots_Output[row, col] = slotSymbols[randomIndex];
@@ -259,7 +259,7 @@ namespace Slot_Machine
 
                     //Check the main diagonal (top-left to bottom-right)
                     bool isMainDiagonalWin = true;
-                    for (int i = 1; i < ROW_COUNT; i++)
+                    for (int i = 1; i < constants.ROW_COUNT; i++)
                     {
                         if (slots_Output[i, i] != slots_Output[0, 0])
                         {
@@ -275,9 +275,9 @@ namespace Slot_Machine
 
                     //Check the secondary diagonal (top-right to bottom-left)
                     bool isSecondaryDiagonalWin = true;
-                    for (int i = 1; i < ROW_COUNT; i++)
+                    for (int i = 1; i < constants.ROW_COUNT; i++)
                     {
-                        if (slots_Output[i, ROW_COUNT - 1 - i] != slots_Output[0, ROW_COUNT - 1])
+                        if (slots_Output[i, constants.ROW_COUNT - 1 - i] != slots_Output[0, constants.ROW_COUNT - 1])
                         {
                             isSecondaryDiagonalWin = false;
                             break;

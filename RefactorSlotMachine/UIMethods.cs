@@ -27,5 +27,16 @@ namespace RefactorSlotMachine
             Console.WriteLine();
         }
 
+        public static void DisplayResult()
+        {
+            //Display the result
+            Console.WriteLine("\nSlot Machine Results: \n");
+        }
+
+
+        public static void RandomPickGen()
+        {
+            
+        }
     }
 }
