@@ -34,9 +34,7 @@ namespace RefactorSlotMachine
         }
 
 
-        public static void RandomPickGen()
-        {
-            
-        }
+
     }
+
 }
