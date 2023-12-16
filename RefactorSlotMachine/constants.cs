@@ -12,5 +12,6 @@ namespace RefactorSlotMachine
         public const char DIAGONAL_LINE = 'D';
         public  const int ROW_COUNT = 3;
         public const int COLUMN_COUNT = 3;
+        public const decimal BET_AMOUNT = 2.00M;
     }
 }
