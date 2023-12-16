@@ -5,7 +5,13 @@ namespace RefactorSlotMachine
 {
     internal class logics
     {
-
+        // Declare win flags as class-level variables
+        private static bool horizontalWin;
+        private static bool verticalWin;
+        private static bool diagonalWin;
+        private static bool verticalCenterWin;
+        private static bool horizontalCenterWin;
+        private static bool diagonalCenterWin;
 
         private static char bettingOption;
         //private static char[,] slots_Output;
@@ -122,7 +128,7 @@ namespace RefactorSlotMachine
         //Check for a win on vertical lines
         public static void VerticalWin(decimal balance, decimal FIRST_WIN, decimal SECOND_WIN, decimal BET_AMOUNT)
         {
-            if (logics.bettingOption == constants.VERTICAL_LINE)
+            if (bettingOption == constants.VERTICAL_LINE)
             {
                 Console.WriteLine("\nPlay all vertical lines with $2: Earn $20 for first line wins, $5 for second or third line wins.");
 
@@ -332,6 +338,20 @@ namespace RefactorSlotMachine
 
         }
 
+    
+    public static void NoWin()
+        {
+             
+            if(!horizontalWin && !verticalWin && !diagonalWin && !verticalCenterWin && !horizontalCenterWin && !diagonalCenterWin)
+            
+            {
+                Console.WriteLine("\nInvalid betting option. Please try again.");
+            }
+
+        }
+    
+    
     }
+
 
 }

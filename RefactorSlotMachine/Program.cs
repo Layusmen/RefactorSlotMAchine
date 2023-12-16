@@ -54,11 +54,8 @@ namespace Slot_Machine
 
                     logics.DiagonalCenterWin(balance, FIRST_WIN, BET_AMOUNT, CENTER_WIN);
 
-            
-                else
-                {
-                    Console.WriteLine("\nInvalid betting option. Please try again.");
-                }
+                    //No Win
+                    logics.NoWin();
 
                 Console.Write("\nDo you want to play again? (press 'y' for yes, any other key for no): ");
                 ConsoleKeyInfo key = Console.ReadKey();
