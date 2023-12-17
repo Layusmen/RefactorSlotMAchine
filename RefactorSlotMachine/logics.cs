@@ -15,7 +15,7 @@ namespace RefactorSlotMachine
 
         private static char bettingOption;
         //private static char[,] slots_Output;
-        private static char[,] slots_Output = new char[constants.ROW_COUNT, constants.COLUMN_COUNT];
+        private static char[,] slots_Output = new char[Constants.ROW_COUNT, Constants.COLUMN_COUNT];
         public static void BettingCheck()
         {
 
@@ -28,7 +28,7 @@ namespace RefactorSlotMachine
 
             Random randomPickGenerator = new Random();
             List<char> slotSymbols = new List<char> { 'A', '1', '5', '7', '$', 'M', '8', '9', '!', '#', 'Q', '&', 'C', 'S', 'Y', 'V', 'W', 'R', 'L', 'F' };
-            //char[,] slots_Output = new char[constants.ROW_COUNT, constants.COLUMN_COUNT];
+            //char[,] slots_Output = new char[Constants.ROW_COUNT, Constants.COLUMN_COUNT];
 
 
             //Display the result
@@ -37,9 +37,9 @@ namespace RefactorSlotMachine
             //Ramdom Pick Generator
 
 
-            for (int row = 0; row < constants.ROW_COUNT; row++)
+            for (int row = 0; row < Constants.ROW_COUNT; row++)
             {
-                for (int col = 0; col < constants.COLUMN_COUNT; col++)
+                for (int col = 0; col < Constants.COLUMN_COUNT; col++)
                 {
                     int randomIndex = randomPickGenerator.Next(slotSymbols.Count);
                     slots_Output[row, col] = slotSymbols[randomIndex];
@@ -55,7 +55,7 @@ namespace RefactorSlotMachine
         //Check if the betting option is valid
         public static void BettingValidity(decimal balance, decimal BET_AMOUNT)
         {
-            if (bettingOption != constants.HORIZONTAL_LINE && bettingOption != constants.VERTICAL_LINE && bettingOption != constants.HOR_CENTER_LINE && bettingOption != constants.VER_CENTER_LINE && bettingOption != constants.DIAGONAL_LINE)
+            if (bettingOption != Constants.HORIZONTAL_LINE && bettingOption != Constants.VERTICAL_LINE && bettingOption != Constants.HOR_CENTER_LINE && bettingOption != Constants.VER_CENTER_LINE && bettingOption != Constants.DIAGONAL_LINE)
             {
                 Console.WriteLine("Invalid betting option. Please try again.");
                 return;
@@ -71,7 +71,7 @@ namespace RefactorSlotMachine
 
         {
             //Horizonal win option
-            if (bettingOption == constants.HORIZONTAL_LINE)
+            if (bettingOption == Constants.HORIZONTAL_LINE)
             {
                 Console.WriteLine("\nYou chose to play all three horizontal lines with $2: Earn $20 for top line wins, $5 for middle or base line wins.");
 
@@ -128,7 +128,7 @@ namespace RefactorSlotMachine
         //Check for a win on vertical lines
         public static void VerticalWin(decimal balance, decimal FIRST_WIN, decimal SECOND_WIN, decimal BET_AMOUNT)
         {
-            if (bettingOption == constants.VERTICAL_LINE)
+            if (bettingOption == Constants.VERTICAL_LINE)
             {
                 Console.WriteLine("\nPlay all vertical lines with $2: Earn $20 for first line wins, $5 for second or third line wins.");
 
@@ -187,7 +187,7 @@ namespace RefactorSlotMachine
         {
 
 
-           if (bettingOption == constants.HOR_CENTER_LINE)
+           if (bettingOption == Constants.HOR_CENTER_LINE)
             {
                 Console.WriteLine("\nPlay horizontal center line alone with $2: Earn $30.");
 
@@ -232,7 +232,7 @@ namespace RefactorSlotMachine
         {
 
 
-                if (bettingOption == constants.VER_CENTER_LINE)
+                if (bettingOption == Constants.VER_CENTER_LINE)
             {
                 Console.WriteLine("\nYou chose to play vertical center line with $2: Earn $30.");
 
@@ -278,13 +278,13 @@ namespace RefactorSlotMachine
         //Check for a win on diagonal lines
         public static void DiagonalCenterWin(decimal balance, decimal FIRST_WIN, decimal BET_AMOUNT, decimal CENTER_WIN)
         {
-           if (bettingOption == constants.DIAGONAL_LINE)
+           if (bettingOption == Constants.DIAGONAL_LINE)
             {
                 Console.WriteLine("Play diagonals with $2: Earn $20 for any winning combination, $30 for both.");
 
                 //Check the main diagonal (top-left to bottom-right)
                 bool isMainDiagonalWin = true;
-                for (int i = 1; i < constants.ROW_COUNT; i++)
+                for (int i = 1; i < Constants.ROW_COUNT; i++)
                 {
                     if (slots_Output[i, i] != slots_Output[0, 0])
                     {
@@ -300,9 +300,9 @@ namespace RefactorSlotMachine
 
                 //Check the secondary diagonal (top-right to bottom-left)
                 bool isSecondaryDiagonalWin = true;
-                for (int i = 1; i < constants.ROW_COUNT; i++)
+                for (int i = 1; i < Constants.ROW_COUNT; i++)
                 {
-                    if (slots_Output[i, constants.ROW_COUNT - 1 - i] != slots_Output[0, constants.ROW_COUNT - 1])
+                    if (slots_Output[i, Constants.ROW_COUNT - 1 - i] != slots_Output[0, Constants.ROW_COUNT - 1])
                     {
                         isSecondaryDiagonalWin = false;
                         break;

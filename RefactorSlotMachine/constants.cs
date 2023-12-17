@@ -2,7 +2,7 @@
 
 namespace RefactorSlotMachine
 {
-    public class constants
+    public class Constants
     {
         //Constants
         public const char HORIZONTAL_LINE = 'A';
