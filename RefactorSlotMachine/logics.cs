@@ -132,7 +132,7 @@ namespace RefactorSlotMachine
         //Check for a win on vertical lines
         public static void VerticalWin(decimal balance, decimal FIRST_WIN, decimal SECOND_WIN, decimal BET_AMOUNT)
         {
-            if (bettingOption == Constants.VERTICAL_LINE)
+            else if (bettingOption == Constants.VERTICAL_LINE)
             {
                 Console.WriteLine("\nPlay all vertical lines with $2: Earn $20 for first line wins, $5 for second or third line wins.");
 
@@ -191,7 +191,7 @@ namespace RefactorSlotMachine
         {
 
 
-           if (bettingOption == Constants.HOR_CENTER_LINE)
+          else if (bettingOption == Constants.HOR_CENTER_LINE)
             {
                 Console.WriteLine("\nPlay horizontal center line alone with $2: Earn $30.");
 
@@ -234,9 +234,7 @@ namespace RefactorSlotMachine
         ///Check for a win on the Vertical Center line 
         public static void VerticalCenterWin(decimal balance, decimal FIRST_WIN, decimal BET_AMOUNT, decimal CENTER_WIN)
         {
-
-
-                if (bettingOption == Constants.VER_CENTER_LINE)
+            else if (bettingOption == Constants.VER_CENTER_LINE)
             {
                 Console.WriteLine("\nYou chose to play vertical center line with $2: Earn $30.");
 
@@ -282,7 +280,7 @@ namespace RefactorSlotMachine
         //Check for a win on diagonal lines
         public static void DiagonalCenterWin(decimal balance, decimal FIRST_WIN, decimal BET_AMOUNT, decimal CENTER_WIN)
         {
-           if (bettingOption == Constants.DIAGONAL_LINE)
+          else if (bettingOption == Constants.DIAGONAL_LINE)
             {
                 Console.WriteLine("Play diagonals with $2: Earn $20 for any winning combination, $30 for both.");
 
