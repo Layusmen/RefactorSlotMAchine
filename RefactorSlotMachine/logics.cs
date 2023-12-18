@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using Microsoft.VisualBasic;
+using RefactorSlotMachine;
+using System;
+using System.Security.Cryptography.X509Certificates;
 
 namespace RefactorSlotMachine
 {
@@ -14,7 +18,7 @@ namespace RefactorSlotMachine
         private static bool diagonalCenterWin;
 
         private static char bettingOption;
-        //private static char[,] slots_Output;
+       
         private static char[,] slots_Output = new char[Constants.ROW_COUNT, Constants.COLUMN_COUNT];
         public static void BettingCheck()
         {

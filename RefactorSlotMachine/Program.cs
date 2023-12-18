@@ -1,28 +1,24 @@
-﻿using RefactorSlotMachine;
+﻿using Microsoft.VisualBasic;
+using RefactorSlotMachine;
 using System;
 using System.Security.Cryptography.X509Certificates;
+using Constants = RefactorSlotMachine.Constants;
 
 namespace Slot_Machine
 {
     static class Program
     {
+    
+
         static void Main(string[] args)
         {
-            //Constants
 
-
-            const decimal INITIAL_BALANCE = 10.00M;
-            const decimal BET_AMOUNT = 2.00M;
-            const decimal FIRST_WIN = 20.00M;
-            const decimal SECOND_WIN = 5.00M;
-            const decimal CENTER_WIN = 30.00M;
-
-
+            
 
             bool playAgain = true;
 
             // Player's initial balance
-            decimal balance = INITIAL_BALANCE;
+            decimal balance = Constants.INITIAL_BALANCE;
             UIMethods.WelcomeMessage();
 
             while (playAgain)
@@ -33,26 +29,26 @@ namespace Slot_Machine
 
                 
                     //BET AMOUNT
-                    logics.BettingValidity(balance, BET_AMOUNT);
+                    logics.BettingValidity(balance, Constants.BET_AMOUNT);
 
                     //Check for a win on horizontal lines
 
-                    logics.HorizontalWin(balance, FIRST_WIN, SECOND_WIN, BET_AMOUNT);
+                    logics.HorizontalWin(balance, Constants.FIRST_WIN, Constants.SECOND_WIN, Constants.BET_AMOUNT);
 
                     //Check for a win on vetical lines
 
-                    logics.VerticalWin(balance, FIRST_WIN, SECOND_WIN, BET_AMOUNT);
+                    logics.VerticalWin(balance, Constants.FIRST_WIN, Constants.SECOND_WIN, Constants.BET_AMOUNT);
 
 
                     //Check for a win on the diagoal lines.
 
-                    logics.DiagonalWin(balance, FIRST_WIN, BET_AMOUNT);
+                    logics.DiagonalWin(balance, Constants.FIRST_WIN, Constants.BET_AMOUNT);
 
                     ///Check for a win on the Vertical Center line 
-                    logics.VerticalCenterWin(balance, FIRST_WIN, BET_AMOUNT, CENTER_WIN);
+                    logics.VerticalCenterWin(balance, Constants.FIRST_WIN, Constants.BET_AMOUNT, Constants.CENTER_WIN);
 
 
-                    logics.DiagonalCenterWin(balance, FIRST_WIN, BET_AMOUNT, CENTER_WIN);
+                    logics.DiagonalCenterWin(balance, Constants.FIRST_WIN, Constants.BET_AMOUNT, Constants.CENTER_WIN);
 
                     //No Win
                     logics.NoWin();

@@ -1,4 +1,7 @@
 ﻿using System;
+using Microsoft.VisualBasic;
+using RefactorSlotMachine;
+using System;
 
 
 namespace RefactorSlotMachine
