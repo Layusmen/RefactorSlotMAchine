@@ -24,16 +24,10 @@ namespace RefactorSlotMachine
             Console.WriteLine("- (D) Play diagonals with $2: Earn $20 for any and $30 for the two winning combination.");
             return true;
         }
-        //Player's initial balance
-        
-        private decimal balance = INITIAL_BALANCE;
-       
-
-        private const decimal INITIAL_BALANCE = 10.00M;
-        private const decimal BET_AMOUNT = 2.00M;
 
         public static char ChooseBet(decimal balance)
         {
+          
 
             //Betting amount
             Console.Write("\nPlease choose a betting option (A, H, V, C, D): ");
@@ -63,11 +57,11 @@ namespace RefactorSlotMachine
             {
                 Console.WriteLine("Invalid betting option. Please try again.");
             }
-            if (balance < BET_AMOUNT)
+            if (balance < Constants.BET_AMOUNT)
             {
                 Console.WriteLine("\nInsufficient funds to play. Game over!");
             }
-            return bettingOption;
+           return bettingOption;
         }
     }
 }

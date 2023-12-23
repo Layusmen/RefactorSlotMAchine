@@ -17,6 +17,7 @@ namespace RefactorSlotMachine
         public static bool horizontalCenterWin;
         public static bool diagonalCenterWin;
        
+       
         public static char[,] slots_Output = new char[Constants.ROW_COUNT, Constants.COLUMN_COUNT];
 
         public readonly static Random randomPickGenerator = new Random();
