@@ -4,10 +4,6 @@ using System;
 using System.Security.Cryptography.X509Certificates;
 using Constants = RefactorSlotMachine.Constants;
 
-char bettingOption = default;
-decimal balance = 0;
-
-
 
 bool playAgain = true;
 

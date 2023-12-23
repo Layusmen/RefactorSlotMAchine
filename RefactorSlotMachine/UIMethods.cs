@@ -25,10 +25,12 @@ namespace RefactorSlotMachine
             return true;
         }
         //Player's initial balance
-        const decimal INITIAL_BALANCE = 10.00M;
+        
         private decimal balance = INITIAL_BALANCE;
-       const decimal BET_AMOUNT = 2.00M;
+       
 
+        private const decimal INITIAL_BALANCE = 10.00M;
+        private const decimal BET_AMOUNT = 2.00M;
 
         public static char ChooseBet(decimal balance)
         {
