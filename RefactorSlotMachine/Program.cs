@@ -12,7 +12,7 @@ namespace RefactorSlotMachine
         {
             decimal balance = Constants.INITIAL_BALANCE;
 
-            bool playAgain = true;
+            bool playAgain = false;
 
 
             do
@@ -65,7 +65,7 @@ namespace RefactorSlotMachine
 
                 // Restore the initial balance for the next play if user chooses to play again
                 //balance = playAgain ? balance : balance;
-                balance = playAgain ? Constants.INITIAL_BALANCE : balance;
+                balance = playAgain ? balance : Constants.INITIAL_BALANCE;
                 // Clear the console for the next round
                 Console.Clear();
 
