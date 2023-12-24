@@ -11,11 +11,11 @@ namespace RefactorSlotMachine
         public static void Main(string[] args)
         {
             decimal balance = Constants.INITIAL_BALANCE;
+
             bool playAgain = true;
 
-            
 
-            while (playAgain)
+            do
             {
                 //Welcome message
                 bool success = UIMethods.WelcomeMessage();
@@ -64,11 +64,12 @@ namespace RefactorSlotMachine
                 playAgain = key.KeyChar == 'y' || key.KeyChar == 'Y';
 
                 // Restore the initial balance for the next play if user chooses to play again
-                balance = playAgain ? balance : balance;
+                //balance = playAgain ? balance : balance;
+                balance = playAgain ? Constants.INITIAL_BALANCE : balance;
                 // Clear the console for the next round
                 Console.Clear();
 
-            }
+            } while (playAgain);
         }
     }
 }
