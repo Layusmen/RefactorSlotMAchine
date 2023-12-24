@@ -13,11 +13,12 @@ namespace RefactorSlotMachine
             decimal balance = Constants.INITIAL_BALANCE;
             bool playAgain = true;
 
+            
+
             while (playAgain)
             {
                 //Welcome message
                 bool success = UIMethods.WelcomeMessage();
-
 
                 //Select option
                 char myBet = UIMethods.ChooseBet(balance);
@@ -62,11 +63,11 @@ namespace RefactorSlotMachine
                 // Check if the pressed key is 'y' for yes
                 playAgain = key.KeyChar == 'y' || key.KeyChar == 'Y';
 
+                // Restore the initial balance for the next play if user chooses to play again
+                balance = playAgain ? balance : balance;
                 // Clear the console for the next round
                 Console.Clear();
 
-                // Restore the initial balance for the next play if user chooses to play again
-                balance = playAgain ? balance : balance;
             }
         }
     }

@@ -27,16 +27,19 @@ namespace RefactorSlotMachine
 
         public static char ChooseBet(decimal balance)
         {
-          
-
             //Betting amount
             Console.Write("\nPlease choose a betting option (A, H, V, C, D): ");
             char bettingOption = char.ToUpper(Console.ReadKey().KeyChar);
             Console.WriteLine();
 
+            ////Check if the betting option is valid
+            if (bettingOption != Constants.HORIZONTAL_LINE && bettingOption != Constants.VERTICAL_LINE && bettingOption != Constants.HOR_CENTER_LINE && bettingOption != Constants.VER_CENTER_LINE && bettingOption != Constants.DIAGONAL_LINE)
+            {
+                Console.WriteLine("Invalid betting option. Please try again.");
+            }
+
             //Display the result
             Console.WriteLine("\nSlot Machine Results: \n");
-
 
             //Ramdom Pick Generator
 
@@ -52,11 +55,7 @@ namespace RefactorSlotMachine
 
             }
             //Check if the betting option is valid
-            //BET AMOUNT
-            if (bettingOption != Constants.HORIZONTAL_LINE && bettingOption != Constants.VERTICAL_LINE && bettingOption != Constants.HOR_CENTER_LINE && bettingOption != Constants.VER_CENTER_LINE && bettingOption != Constants.DIAGONAL_LINE)
-            {
-                Console.WriteLine("Invalid betting option. Please try again.");
-            }
+            
             if (balance < Constants.BET_AMOUNT)
             {
                 Console.WriteLine("\nInsufficient funds to play. Game over!");
