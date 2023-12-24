@@ -25,11 +25,13 @@ namespace RefactorSlotMachine
         //Random Value Generator
         public static List<char> slotSymbols = new List<char> { 'A', '1', '5', '7', '$', 'M', '8', '9', '!', '#', 'Q', '&', 'C', 'S', 'Y', 'V', 'W', 'R', 'L', 'F' };
 
+
         //Horizonal win  Check
         public static decimal HorizontalWin(decimal balance, decimal FIRST_WIN, decimal SECOND_WIN, decimal BET_AMOUNT)
 
         {
             //Horizonal win option
+            int score = 0;
 
             Console.WriteLine("\nYou chose to play all three horizontal lines with $2: Earn $20 for top line wins, $5 for middle or base line wins.");
 
@@ -64,6 +66,7 @@ namespace RefactorSlotMachine
                     {
                         balance += SECOND_WIN;
                     }
+                    score++;
                     break;
                 }
             }
@@ -80,7 +83,7 @@ namespace RefactorSlotMachine
             // Display the updated balance
           Console.WriteLine($"\nYour current balance: ${balance}");
             
-            return balance;
+            return score;
 
         }
 

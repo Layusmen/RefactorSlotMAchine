@@ -17,7 +17,9 @@ namespace RefactorSlotMachine
 
             do
             {
-                //Welcome message
+               
+               
+                    //Welcome message
                 bool success = UIMethods.WelcomeMessage();
 
                 //Select option
@@ -26,7 +28,8 @@ namespace RefactorSlotMachine
                 //Check for a win on horizontal lines
                 if (myBet == Constants.HORIZONTAL_LINE)
                 {
-                    logics.HorizontalWin(balance, Constants.FIRST_WIN, Constants.SECOND_WIN, Constants.BET_AMOUNT);
+
+                    decimal  returnValue = logics.HorizontalWin(balance, Constants.FIRST_WIN, Constants.SECOND_WIN, Constants.BET_AMOUNT);
                 }
 
                 //Check for a win on vetical lines
