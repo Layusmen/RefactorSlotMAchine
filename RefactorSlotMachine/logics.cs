@@ -18,15 +18,30 @@ namespace RefactorSlotMachine
         public static bool diagonalCenterWin;
        
        
+        /// <summary>
+        /// Slot Output
+        /// </summary>
         public static char[,] slots_Output = new char[Constants.ROW_COUNT, Constants.COLUMN_COUNT];
 
+        /// <summary>
+        /// Random Generator
+        /// </summary>
         public readonly static Random randomPickGenerator = new Random();
 
+        /// <summary>
+        /// Random Value Generated
+        /// </summary>
         //Random Value Generator
         public static List<char> slotSymbols = new List<char> { 'A', '1', '5', '7', '$', 'M', '8', '9', '!', '#', 'Q', '&', 'C', 'S', 'Y', 'V', 'W', 'R', 'L', 'F' };
-
-
-        //Horizonal win  Check
+       
+        /// <summary>
+        /// Horizonal win  Check
+        /// </summary>
+        /// <param name="balance"></param>
+        /// <param name="FIRST_WIN"></param>
+        /// <param name="SECOND_WIN"></param>
+        /// <param name="BET_AMOUNT"></param>
+        /// <returns></returns>
         public static decimal HorizontalWin(decimal balance, decimal FIRST_WIN, decimal SECOND_WIN, decimal BET_AMOUNT)
 
         {
@@ -86,7 +101,14 @@ namespace RefactorSlotMachine
 
         }
 
-        //Check for a win on vertical lines
+        /// <summary>
+        /// Check for a win on vertical lines
+        /// </summary>
+        /// <param name="balance"></param>
+        /// <param name="FIRST_WIN"></param>
+        /// <param name="SECOND_WIN"></param>
+        /// <param name="BET_AMOUNT"></param>
+        /// <returns></returns>
         public static decimal VerticalWin(decimal balance, decimal FIRST_WIN, decimal SECOND_WIN, decimal BET_AMOUNT)
         {
 
@@ -140,7 +162,14 @@ namespace RefactorSlotMachine
             return balance;
         }
 
-        //Check for a win on the Diagonal lines.
+        /// <summary>
+        /// //Check for a win on the Diagonal lines.
+        /// </summary>
+        /// <param name="balance"></param>
+        /// <param name="FIRST_WIN"></param>
+        /// <param name="BET_AMOUNT"></param>
+        /// <param name="CENTER_WIN"></param>
+        /// <returns></returns>
         public static decimal DiagonalWin(decimal balance, decimal FIRST_WIN, decimal BET_AMOUNT, decimal CENTER_WIN)
 
         {
@@ -200,8 +229,16 @@ namespace RefactorSlotMachine
             Console.WriteLine($"\nYour current balance: ${balance}");
             return balance;
         }
-        
-        ///Check for a win on the Vertical Center line 
+
+
+        /// <summary>
+        /// Check for a win on the Vertical Center line
+        /// </summary>
+        /// <param name="balance"></param>
+        /// <param name="FIRST_WIN"></param>
+        /// <param name="BET_AMOUNT"></param>
+        /// <param name="CENTER_WIN"></param>
+        /// <returns></returns>
         public static decimal VerticalCenterWin(decimal balance, decimal FIRST_WIN, decimal BET_AMOUNT, decimal CENTER_WIN)
         {
 
@@ -239,7 +276,14 @@ namespace RefactorSlotMachine
             return balance;
         }
 
-        //Check for a win on Horizontal Center line.
+        /// <summary>
+        /// Check for a win on Horizontal Center line.
+        /// </summary>
+        /// <param name="balance"></param>
+        /// <param name="FIRST_WIN"></param>
+        /// <param name="BET_AMOUNT"></param>
+        /// <param name="CENTER_WIN"></param>
+        /// <returns></returns>
         public static decimal HorizontalCenterWin(decimal balance, decimal FIRST_WIN, decimal BET_AMOUNT, decimal CENTER_WIN)
         {
 
@@ -278,6 +322,10 @@ namespace RefactorSlotMachine
 
 
         }
+        
+        /// <summary>
+        /// Invalid Belt
+        /// </summary>
         public static void InvalidBetting()
         {
 

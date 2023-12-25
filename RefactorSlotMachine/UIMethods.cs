@@ -8,7 +8,10 @@ namespace RefactorSlotMachine
 {
     internal class UIMethods
     {
-      
+      /// <summary>
+      /// Welcome Message
+      /// </summary>
+      /// <returns></returns>
         public static bool WelcomeMessage()
         {
             //First messages
@@ -25,6 +28,11 @@ namespace RefactorSlotMachine
             return true;
         }
 
+        /// <summary>
+        /// Choose Bet
+        /// </summary>
+        /// <param name="balance"></param>
+        /// <returns></returns>
         public static char ChooseBet(decimal balance)
         {
             //Betting amount
