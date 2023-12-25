@@ -10,49 +10,58 @@ namespace RefactorSlotMachine
     {
         public static void Main(string[] args)
         {
-            decimal balance = Constants.INITIAL_BALANCE;
+            Decimal balance = Constants.INITIAL_BALANCE;
 
-            bool playAgain = false;
+            bool playAgain = true;
 
 
-            do
+            while (playAgain)
             {
-               
-               
-                    //Welcome message
+                //Welcome message
                 bool success = UIMethods.WelcomeMessage();
 
                 //Select option
                 char myBet = UIMethods.ChooseBet(balance);
 
+                if (balance < Constants.BET_AMOUNT)
+                {
+                    Console.WriteLine("\nInsufficient funds to play. Game over!");
+                    break;
+                }
+
                 //Check for a win on horizontal lines
                 if (myBet == Constants.HORIZONTAL_LINE)
                 {
 
-                    decimal  returnValue = logics.HorizontalWin(balance, Constants.FIRST_WIN, Constants.SECOND_WIN, Constants.BET_AMOUNT);
+                    decimal returnValue = logics.HorizontalWin(balance, Constants.FIRST_WIN, Constants.SECOND_WIN, Constants.BET_AMOUNT);
+                    balance = returnValue;
                 }
 
                 //Check for a win on vetical lines
 
                 else if (myBet == Constants.VERTICAL_LINE)
                 {
-                    logics.VerticalWin(balance, Constants.FIRST_WIN, Constants.SECOND_WIN, Constants.BET_AMOUNT);
+                    decimal returnValue = logics.VerticalWin(balance, Constants.FIRST_WIN, Constants.SECOND_WIN, Constants.BET_AMOUNT);
+                    balance = returnValue;
                 }
 
                 else if (myBet == Constants.DIAGONAL_LINE)
                 {
-                    logics.DiagonalWin(balance, Constants.FIRST_WIN, Constants.BET_AMOUNT, Constants.CENTER_WIN);
+                    decimal returnValue = logics.DiagonalWin(balance, Constants.FIRST_WIN, Constants.BET_AMOUNT, Constants.CENTER_WIN);
+                    balance = returnValue;
                 }
 
                 else if (myBet == Constants.VER_CENTER_LINE)
                 {   ///Check for a win on the Vertical Center line 
-                    logics.VerticalCenterWin(balance, Constants.FIRST_WIN, Constants.BET_AMOUNT, Constants.CENTER_WIN);
+                    decimal returnValue = logics.VerticalCenterWin(balance, Constants.FIRST_WIN, Constants.BET_AMOUNT, Constants.CENTER_WIN);
+                    balance = returnValue;
                 }
 
                 else if (myBet == Constants.HOR_CENTER_LINE)
                 {
 
-                    logics.HorizontalCenterWin(balance, Constants.FIRST_WIN, Constants.BET_AMOUNT, Constants.CENTER_WIN);
+                    decimal returnValue = logics.HorizontalCenterWin(balance, Constants.FIRST_WIN, Constants.BET_AMOUNT, Constants.CENTER_WIN);
+                    balance = returnValue;
                 }
                 else
                 {
@@ -72,7 +81,7 @@ namespace RefactorSlotMachine
                 // Clear the console for the next round
                 Console.Clear();
 
-            } while (playAgain);
+            }
         }
     }
 }

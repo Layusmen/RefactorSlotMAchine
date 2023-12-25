@@ -56,10 +56,7 @@ namespace RefactorSlotMachine
             }
             //Check if the betting option is valid
             
-            if (balance < Constants.BET_AMOUNT)
-            {
-                Console.WriteLine("\nInsufficient funds to play. Game over!");
-            }
+            
            return bettingOption;
         }
     }

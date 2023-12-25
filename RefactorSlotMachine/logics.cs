@@ -31,7 +31,7 @@ namespace RefactorSlotMachine
 
         {
             //Horizonal win option
-            int score = 0;
+            //int score = 0;
 
             Console.WriteLine("\nYou chose to play all three horizontal lines with $2: Earn $20 for top line wins, $5 for middle or base line wins.");
 
@@ -66,7 +66,7 @@ namespace RefactorSlotMachine
                     {
                         balance += SECOND_WIN;
                     }
-                    score++;
+                    //score++;
                     break;
                 }
             }
@@ -81,9 +81,8 @@ namespace RefactorSlotMachine
             }
 
             // Display the updated balance
-          Console.WriteLine($"\nYour current balance: ${balance}");
-            
-            return score;
+         Console.WriteLine($"\nYour current balance: ${balance}");
+           return balance;
 
         }
 
