@@ -1,9 +1,5 @@
-﻿using Microsoft.VisualBasic;
-using RefactorSlotMachine;
+﻿using RefactorSlotMachine;
 using System;
-using System.Security.Cryptography.X509Certificates;
-using Constants = RefactorSlotMachine.Constants;
-
 namespace RefactorSlotMachine
 {
     internal class Program
