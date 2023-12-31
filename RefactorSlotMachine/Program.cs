@@ -29,7 +29,7 @@ namespace RefactorSlotMachine
                     break;
                 }
 
-                //Check for a win on horizontal lines
+                //Check for a win on all the lines
                 decimal winningAmount;
 
                 if (myBet == Constants.HORIZONTAL_LINE)
@@ -55,7 +55,7 @@ namespace RefactorSlotMachine
                 else
                 {
                     logics.InvalidBetting();
-                    return; // Exit early if no valid bet
+                    return; // Exit early if there's no valid bet
                 }
 
                 balance = winningAmount;
