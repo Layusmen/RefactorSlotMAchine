@@ -19,7 +19,7 @@ namespace RefactorSlotMachine
             {
                 //Welcome message
                 bool success = UIMethods.WelcomeMessage();
-
+                decimal returnValue;
                 //Select option
                 char myBet = UIMethods.ChooseBet(balance);
 
@@ -30,44 +30,36 @@ namespace RefactorSlotMachine
                 }
 
                 //Check for a win on horizontal lines
+                decimal winningAmount;
+
                 if (myBet == Constants.HORIZONTAL_LINE)
                 {
-
-                    decimal returnValue = logics.HorizontalWin(balance, Constants.FIRST_WIN, Constants.SECOND_WIN, Constants.BET_AMOUNT);
-                    balance = returnValue;
+                    winningAmount = logics.HorizontalWin(balance, Constants.FIRST_WIN, Constants.SECOND_WIN, Constants.BET_AMOUNT);
                 }
-
-                //Check for a win on vetical lines
-
                 else if (myBet == Constants.VERTICAL_LINE)
                 {
-                    decimal returnValue = logics.VerticalWin(balance, Constants.FIRST_WIN, Constants.SECOND_WIN, Constants.BET_AMOUNT);
-                    balance = returnValue;
+                    winningAmount = logics.VerticalWin(balance, Constants.FIRST_WIN, Constants.SECOND_WIN, Constants.BET_AMOUNT);
                 }
-
                 else if (myBet == Constants.DIAGONAL_LINE)
                 {
-                    decimal returnValue = logics.DiagonalWin(balance, Constants.FIRST_WIN, Constants.BET_AMOUNT, Constants.CENTER_WIN);
-                    balance = returnValue;
+                    winningAmount = logics.DiagonalWin(balance, Constants.FIRST_WIN, Constants.BET_AMOUNT, Constants.CENTER_WIN);
                 }
-
                 else if (myBet == Constants.VER_CENTER_LINE)
-                {   ///Check for a win on the Vertical Center line 
-                    decimal returnValue = logics.VerticalCenterWin(balance, Constants.FIRST_WIN, Constants.BET_AMOUNT, Constants.CENTER_WIN);
-                    balance = returnValue;
+                {
+                    winningAmount = logics.VerticalCenterWin(balance, Constants.FIRST_WIN, Constants.BET_AMOUNT, Constants.CENTER_WIN);
                 }
-
                 else if (myBet == Constants.HOR_CENTER_LINE)
                 {
-
-                    decimal returnValue = logics.HorizontalCenterWin(balance, Constants.FIRST_WIN, Constants.BET_AMOUNT, Constants.CENTER_WIN);
-                    balance = returnValue;
+                    winningAmount = logics.HorizontalCenterWin(balance, Constants.FIRST_WIN, Constants.BET_AMOUNT, Constants.CENTER_WIN);
                 }
                 else
                 {
-                    //No Win
                     logics.InvalidBetting();
+                    return; // Exit early if no valid bet
                 }
+
+                balance = winningAmount;
+
 
                 Console.Write("\nDo you want to play again? (press 'y' for yes, any other key for no): ");
                 ConsoleKeyInfo key = Console.ReadKey();

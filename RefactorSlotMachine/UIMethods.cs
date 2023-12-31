@@ -51,21 +51,24 @@ namespace RefactorSlotMachine
 
             //Ramdom Pick Generator
 
-            for (int row = 0; row < Constants.ROW_COUNT; row++)
-            {
-                for (int col = 0; col < Constants.COLUMN_COUNT; col++)
-                {
-                    int randomIndex = logics.randomPickGenerator.Next(logics.slotSymbols.Count);
-                    logics.slots_Output[row, col] = logics.slotSymbols[randomIndex];
-                    Console.Write(logics.slots_Output[row, col] + "\t");
-                }
-                Console.WriteLine();
+            //slots_output = new char[,] { { '1','1','1'}, {'1','1','1' }, {'1','1','1' } };
 
-            }
+            for (int row = 0; row < Constants.ROW_COUNT; row++)
+             {
+                 for (int col = 0; col < Constants.COLUMN_COUNT; col++)
+                 {
+                    //int randomIndex = logics.randomPickGenerator.Next(logics.slotSymbols.Count);
+                    //logics.slots_Output[row, col] = logics.slotSymbols[randomIndex];
+                   logics.slots_Output = new char[,] { { '1', '1', '1' }, { '1', '1', '1' }, { '1', '0', '0' } };
+                    Console.Write(logics.slots_Output[row, col] + "\t");
+                 }
+                 Console.WriteLine();
+
+             }
             //Check if the betting option is valid
-            
-            
-           return bettingOption;
+
+
+            return bettingOption;
         }
     }
 }
