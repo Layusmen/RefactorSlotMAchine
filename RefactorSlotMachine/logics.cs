@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using Microsoft.VisualBasic;
 using RefactorSlotMachine;
-using System;
-using System.Security.Cryptography.X509Certificates;
 
 namespace RefactorSlotMachine
 {
-    internal class logics
+    internal class Logics
     {
         // Declare win flags as class-level variables
         public static bool horizontalWin;
@@ -33,7 +29,7 @@ namespace RefactorSlotMachine
         /// </summary>
         //Random Value Generator
         public static List<char> slotSymbols = new List<char> { 'A', '1', '5', '7', '$', 'M', '8', '9', '!', '#', 'Q', '&', 'C', 'S', 'Y', 'V', 'W', 'R', 'L', 'F' };
-       
+
         /// <summary>
         /// Horizonal win  Check
         /// </summary>
@@ -42,12 +38,12 @@ namespace RefactorSlotMachine
         /// <param name="SECOND_WIN"></param>
         /// <param name="BET_AMOUNT"></param>
         /// <returns></returns>
-        public static decimal HorizontalWin(decimal balance, decimal FIRST_WIN, decimal SECOND_WIN, decimal BET_AMOUNT)
+        public static decimal HorizontalWin(decimal balance)
 
         {
             //Horizonal win option
             //int score = 0;
-
+          
             Console.WriteLine("\nYou chose to play all three horizontal lines with $2: Earn $20 for top line wins, $5 for middle or base line wins.");
 
             // check for a win on a specific horizontal line
@@ -75,30 +71,29 @@ namespace RefactorSlotMachine
                     // Update balance
                     if (row == 0)
                     {
-                        balance += FIRST_WIN;
+                        balance += Constants.FIRST_WIN;
                     }
                     else
                     {
-                        balance += SECOND_WIN;
+                        balance += Constants.SECOND_WIN;
                     }
                     //score++;
                     break;
                 }
             }
 
-            // If horizontalWin is still false, there is no win on any row
-            if (!horizontalWin)
-            {
-                Console.WriteLine($"\nYou did not win on the Horizontal lines!");
+                // If horizontalWin is still false, there is no win on any row
+                if (!horizontalWin)
+                {
+                    Console.WriteLine($"\nYou did not win on the Horizontal lines!");
 
-                // Subtract the bet amount from the balance
-                balance -= BET_AMOUNT;
-            }
+                    // Subtract the bet amount from the balance
+                    balance -= Constants.BET_AMOUNT;
+                }
 
-            // Display the updated balance
-         Console.WriteLine($"\nYour current balance: ${balance}");
-           return balance;
-
+                // Display the updated balance
+             Console.WriteLine($"\nYour current balance: ${balance}");
+               return balance;
         }
 
         /// <summary>
@@ -109,7 +104,7 @@ namespace RefactorSlotMachine
         /// <param name="SECOND_WIN"></param>
         /// <param name="BET_AMOUNT"></param>
         /// <returns></returns>
-        public static decimal VerticalWin(decimal balance, decimal FIRST_WIN, decimal SECOND_WIN, decimal BET_AMOUNT)
+        public static decimal VerticalWin(decimal balance)
         {
 
             Console.WriteLine("\nPlay all vertical lines with $2: Earn $20 for first line wins, $5 for second or third line wins.");
@@ -134,17 +129,18 @@ namespace RefactorSlotMachine
                 // If verticalWin is true, there is a win on this column
                 if (verticalWin)
                 {
-                    Console.WriteLine($"\nCongratulations! You win on the {(column == 0 ? "top" : (column == 1 ? "middle" : "bottom"))} horizontal line!");
+                    Console.WriteLine($"\nCongratulations! You win on the {(column == 0 ? "first" : (column == 1 ? "middle" : "third"))} vertical lines!");
 
                     // Update balance
                     if (column == 0)
                     {
-                        balance += FIRST_WIN;
+                        balance += Constants.FIRST_WIN;
                     }
                     else
                     {
-                        balance += SECOND_WIN;
+                        balance += Constants.SECOND_WIN;
                     }
+                    break;
                 }
 
             }
@@ -154,7 +150,7 @@ namespace RefactorSlotMachine
                 Console.WriteLine("\nYou did not win on the vertical line!");
 
                 // Subtract the bet amount from the balance
-                balance -= BET_AMOUNT;
+                balance -= Constants.BET_AMOUNT;
             }
 
             // Display the updated balance
@@ -170,7 +166,7 @@ namespace RefactorSlotMachine
         /// <param name="BET_AMOUNT"></param>
         /// <param name="CENTER_WIN"></param>
         /// <returns></returns>
-        public static decimal DiagonalWin(decimal balance, decimal FIRST_WIN, decimal BET_AMOUNT, decimal CENTER_WIN)
+        public static decimal DiagonalWin(decimal balance)
 
         {
             Console.WriteLine("Play diagonals with $2: Earn $20 for any winning combination, $30 for both.");
@@ -239,7 +235,7 @@ namespace RefactorSlotMachine
         /// <param name="BET_AMOUNT"></param>
         /// <param name="CENTER_WIN"></param>
         /// <returns></returns>
-        public static decimal VerticalCenterWin(decimal balance, decimal FIRST_WIN, decimal BET_AMOUNT, decimal CENTER_WIN)
+        public static decimal VerticalCenterWin(decimal balance)
         {
 
             Console.WriteLine("\nYou chose to play vertical center line with $2: Earn $30.");
@@ -261,14 +257,14 @@ namespace RefactorSlotMachine
                 Console.WriteLine($"\nCongratulations! You win on the center vertical line!");
 
                 // Add win amount to the balance
-                balance += CENTER_WIN;
+                balance += Constants.CENTER_WIN;
             }
             if (!verticalCenterWin)
             {
                 Console.WriteLine("\nYou did not win on the Vertical Center line");
 
                 // Subtract the bet amount from the balance
-                balance -= BET_AMOUNT;
+                balance -= Constants.BET_AMOUNT;
 
             }
             // Display the updated balance
@@ -284,7 +280,7 @@ namespace RefactorSlotMachine
         /// <param name="BET_AMOUNT"></param>
         /// <param name="CENTER_WIN"></param>
         /// <returns></returns>
-        public static decimal HorizontalCenterWin(decimal balance, decimal FIRST_WIN, decimal BET_AMOUNT, decimal CENTER_WIN)
+        public static decimal HorizontalCenterWin(decimal balance)
         {
 
             Console.WriteLine("\nPlay horizontal center line alone with $2: Earn $30.");
@@ -306,14 +302,14 @@ namespace RefactorSlotMachine
             {
                 Console.WriteLine($"\nCongratulations! You win on the horizontal middle line!");
 
-                balance += FIRST_WIN; // Assuming $20 for a win on the first row
+                balance += Constants.FIRST_WIN; // Assuming $20 for a win on the first row
             }
 
 
             else
             {
                 Console.WriteLine("\nYou did not win on the horizontal middle line");
-                balance -= BET_AMOUNT;
+                balance -= Constants.BET_AMOUNT;
             }
 
             // Display the updated balance

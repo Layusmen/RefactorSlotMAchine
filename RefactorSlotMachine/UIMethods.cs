@@ -1,7 +1,4 @@
 ﻿using System;
-using Microsoft.VisualBasic;
-using RefactorSlotMachine;
-using System;
 
 
 namespace RefactorSlotMachine
@@ -59,8 +56,8 @@ namespace RefactorSlotMachine
                  {
                     //int randomIndex = logics.randomPickGenerator.Next(logics.slotSymbols.Count);
                     //logics.slots_Output[row, col] = logics.slotSymbols[randomIndex];
-                   logics.slots_Output = new char[,] { { '1', '1', '1' }, { '1', '1', '1' }, { '1', '0', '0' } };
-                    Console.Write(logics.slots_Output[row, col] + "\t");
+                   Logics.slots_Output = new char[,] { { '1', '1', '1' }, { '1', '1', '1' }, { '1', '1', '0' } };
+                    Console.Write(Logics.slots_Output[row, col] + "\t");
                  }
                  Console.WriteLine();
 

@@ -1,4 +1,5 @@
-﻿using RefactorSlotMachine;
+﻿using Microsoft.VisualBasic;
+using RefactorSlotMachine;
 using System;
 namespace RefactorSlotMachine
 {
@@ -15,7 +16,6 @@ namespace RefactorSlotMachine
             {
                 //Welcome message
                 bool success = UIMethods.WelcomeMessage();
-                decimal returnValue;
                 //Select option
                 char myBet = UIMethods.ChooseBet(balance);
 
@@ -30,27 +30,27 @@ namespace RefactorSlotMachine
 
                 if (myBet == Constants.HORIZONTAL_LINE)
                 {
-                    winningAmount = logics.HorizontalWin(balance, Constants.FIRST_WIN, Constants.SECOND_WIN, Constants.BET_AMOUNT);
+                    winningAmount = Logics.HorizontalWin(balance);
                 }
                 else if (myBet == Constants.VERTICAL_LINE)
                 {
-                    winningAmount = logics.VerticalWin(balance, Constants.FIRST_WIN, Constants.SECOND_WIN, Constants.BET_AMOUNT);
+                    winningAmount = Logics.VerticalWin(balance);
                 }
                 else if (myBet == Constants.DIAGONAL_LINE)
                 {
-                    winningAmount = logics.DiagonalWin(balance, Constants.FIRST_WIN, Constants.BET_AMOUNT, Constants.CENTER_WIN);
+                    winningAmount = Logics.DiagonalWin(balance);
                 }
                 else if (myBet == Constants.VER_CENTER_LINE)
                 {
-                    winningAmount = logics.VerticalCenterWin(balance, Constants.FIRST_WIN, Constants.BET_AMOUNT, Constants.CENTER_WIN);
+                    winningAmount = Logics.VerticalCenterWin(balance);
                 }
                 else if (myBet == Constants.HOR_CENTER_LINE)
                 {
-                    winningAmount = logics.HorizontalCenterWin(balance, Constants.FIRST_WIN, Constants.BET_AMOUNT, Constants.CENTER_WIN);
+                    winningAmount = Logics.HorizontalCenterWin(balance);
                 }
                 else
                 {
-                    logics.InvalidBetting();
+                    Logics.InvalidBetting();
                     return; // Exit early if there's no valid bet
                 }
 
