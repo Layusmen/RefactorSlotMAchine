@@ -38,12 +38,12 @@ namespace RefactorSlotMachine
         /// <param name="SECOND_WIN"></param>
         /// <param name="BET_AMOUNT"></param>
         /// <returns></returns>
-        public static decimal HorizontalWin(decimal winningBalance)
+        public static decimal HorizontalWin()
 
         {
             //Horizonal win option
             //int score = 0;
-          
+            decimal updatedBalance = 0;
             Console.WriteLine("\nYou chose to play all three horizontal lines with $2: Earn $20 for top line wins, $5 for middle or base line wins.");
 
             // check for a win on a specific horizontal line
@@ -71,11 +71,11 @@ namespace RefactorSlotMachine
                     // Update balance
                     if (row == 0)
                     {
-                        winningBalance = Constants.FIRST_WIN;
+                        updatedBalance = Constants.FIRST_WIN;
                     }
                     else
                     {
-                        winningBalance = Constants.SECOND_WIN;
+                        updatedBalance = Constants.SECOND_WIN;
                     }
                     //score++;
                     break;
@@ -87,13 +87,13 @@ namespace RefactorSlotMachine
                 {
                     Console.WriteLine($"\nYou did not win on the Horizontal lines!");
 
-                    // Subtract the bet amount from the balance
-                    winningBalance = Constants.BET_AMOUNT;
+                // Subtract the bet amount from the balance
+                updatedBalance = -Constants.BET_AMOUNT;
                 }
 
                 // Display the updated balance
-             Console.WriteLine($"\nYour current balance: ${winningBalance}");
-               return winningBalance;
+             Console.WriteLine($"\nYour current balance: ${updatedBalance}");
+               return updatedBalance;
         }
 
         /// <summary>

@@ -10,9 +10,7 @@ namespace RefactorSlotMachine
            
             decimal balance = Constants.INITIAL_BALANCE;
 
-            bool playAgain = true;
-            balance = Logics.HorizontalWin(winningBalance);
-
+            bool playAgain = true;            
             while (playAgain)
             {
                
@@ -28,27 +26,27 @@ namespace RefactorSlotMachine
                 }
 
                 //Check for a win on all the lines
-                decimal winningAmount;
 
+                decimal updatedBalance;
                 if (myBet == Constants.HORIZONTAL_LINE)
                 {
-                    winningAmount = Logics.HorizontalWin(balance);
+                   updatedBalance = Logics.HorizontalWin();
                 }
                 else if (myBet == Constants.VERTICAL_LINE)
                 {
-                    winningAmount = Logics.VerticalWin(balance);
+                   updatedBalance = Logics.VerticalWin(balance);
                 }
                 else if (myBet == Constants.DIAGONAL_LINE)
                 {
-                    winningAmount = Logics.DiagonalWin(balance);
+                   updatedBalance = Logics.DiagonalWin(balance);
                 }
                 else if (myBet == Constants.VER_CENTER_LINE)
                 {
-                    winningAmount = Logics.VerticalCenterWin(balance);
+                    updatedBalance = Logics.VerticalCenterWin(balance);
                 }
                 else if (myBet == Constants.HOR_CENTER_LINE)
                 {
-                    winningAmount = Logics.HorizontalCenterWin(balance);
+                   updatedBalance = Logics.HorizontalCenterWin(balance);
                 }
                 else
                 {
@@ -56,7 +54,7 @@ namespace RefactorSlotMachine
                     return; // Exit early if there's no valid bet
                 }
 
-                balance = winningAmount;
+                balance = updatedBalance;
 
 
                 Console.Write("\nDo you want to play again? (press 'y' for yes, any other key for no): ");
