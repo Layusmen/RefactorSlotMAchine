@@ -7,13 +7,15 @@ namespace RefactorSlotMachine
     {
         public static void Main(string[] args)
         {
-            Decimal balance = Constants.INITIAL_BALANCE;
+           
+            decimal balance = Constants.INITIAL_BALANCE;
 
             bool playAgain = true;
-
+            balance = Logics.HorizontalWin(winningBalance);
 
             while (playAgain)
             {
+               
                 //Welcome message
                 bool success = UIMethods.WelcomeMessage();
                 //Select option

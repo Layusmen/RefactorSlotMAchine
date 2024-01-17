@@ -38,7 +38,7 @@ namespace RefactorSlotMachine
         /// <param name="SECOND_WIN"></param>
         /// <param name="BET_AMOUNT"></param>
         /// <returns></returns>
-        public static decimal HorizontalWin(decimal balance)
+        public static decimal HorizontalWin(decimal winningBalance)
 
         {
             //Horizonal win option
@@ -71,11 +71,11 @@ namespace RefactorSlotMachine
                     // Update balance
                     if (row == 0)
                     {
-                        balance += Constants.FIRST_WIN;
+                        winningBalance = Constants.FIRST_WIN;
                     }
                     else
                     {
-                        balance += Constants.SECOND_WIN;
+                        winningBalance = Constants.SECOND_WIN;
                     }
                     //score++;
                     break;
@@ -88,12 +88,12 @@ namespace RefactorSlotMachine
                     Console.WriteLine($"\nYou did not win on the Horizontal lines!");
 
                     // Subtract the bet amount from the balance
-                    balance -= Constants.BET_AMOUNT;
+                    winningBalance = Constants.BET_AMOUNT;
                 }
 
                 // Display the updated balance
-             Console.WriteLine($"\nYour current balance: ${balance}");
-               return balance;
+             Console.WriteLine($"\nYour current balance: ${winningBalance}");
+               return winningBalance;
         }
 
         /// <summary>
@@ -184,7 +184,7 @@ namespace RefactorSlotMachine
             if (isMainDiagonalWin)
             {
                 Console.WriteLine("\nWin Detected on Main Diagonal");
-                balance += FIRST_WIN; // Assuming $20 for a win on the first row
+                balance += Constants.FIRST_WIN; // Assuming $20 for a win on the first row
             }
 
             //Check the secondary diagonal (top-right to bottom-left)
@@ -202,23 +202,23 @@ namespace RefactorSlotMachine
 
                 // Handle the case when there's a win on both diagonals
                 Console.WriteLine("\nWin Detected on Both Diagonals");
-                balance += CENTER_WIN; // Assuming $20 for a win on the first row
+                balance += Constants.CENTER_WIN; // Assuming $20 for a win on the first row
             }
             else if (isSecondaryDiagonalWin)
             {
                 Console.WriteLine("\nWin Detected on Secondary Diagonal");
-                balance += FIRST_WIN; // Assuming $20 for a win on the first row
+                balance += Constants.FIRST_WIN; // Assuming $20 for a win on the first row
             }
             else if (!isSecondaryDiagonalWin && !isMainDiagonalWin)
             {
                 Console.WriteLine("\nNo win Detected on any of the Diagonal lines");
-                balance -= BET_AMOUNT;
+                balance -= Constants.BET_AMOUNT;
             }
 
             else
             {
                 Console.WriteLine("\nNo win Detected on any of the Diagonal lines");
-                balance -= BET_AMOUNT; // Subtract the bet amount from the balance if no win is detected on any of the diagonal lines.
+                balance -= Constants.BET_AMOUNT; // Subtract the bet amount from the balance if no win is detected on any of the diagonal lines.
             }
 
             // Display the updated balance
