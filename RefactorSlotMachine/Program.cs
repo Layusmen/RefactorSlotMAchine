@@ -34,19 +34,19 @@ namespace RefactorSlotMachine
                 }
                 else if (myBet == Constants.VERTICAL_LINE)
                 {
-                   updatedBalance = Logics.VerticalWin(balance);
+                   updatedBalance = Logics.VerticalWin();
                 }
                 else if (myBet == Constants.DIAGONAL_LINE)
                 {
-                   updatedBalance = Logics.DiagonalWin(balance);
+                   updatedBalance = Logics.DiagonalWin();
                 }
                 else if (myBet == Constants.VER_CENTER_LINE)
                 {
-                    updatedBalance = Logics.VerticalCenterWin(balance);
+                    updatedBalance = Logics.VerticalCenterWin();
                 }
                 else if (myBet == Constants.HOR_CENTER_LINE)
                 {
-                   updatedBalance = Logics.HorizontalCenterWin(balance);
+                   updatedBalance = Logics.HorizontalCenterWin();
                 }
                 else
                 {
