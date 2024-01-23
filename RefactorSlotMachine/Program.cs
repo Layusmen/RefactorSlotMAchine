@@ -20,7 +20,7 @@ namespace RefactorSlotMachine
                 //char Option = Logics.BettingOption();
                 //Select option
                 char myBet = UIMethods.ChooseBet();
-                _ = UIMethods.BettingResult();
+                _= UIMethods.BettingResult();
 
                 if (balance < Constants.BET_AMOUNT)
                 {
