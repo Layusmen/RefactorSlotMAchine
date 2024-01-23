@@ -16,8 +16,11 @@ namespace RefactorSlotMachine
                
                 //Welcome message
                 bool success = UIMethods.WelcomeMessage();
+
+                //char Option = Logics.BettingOption();
                 //Select option
-                char myBet = UIMethods.ChooseBet(balance);
+                char myBet = UIMethods.ChooseBet();
+                _ = UIMethods.BettingResult();
 
                 if (balance < Constants.BET_AMOUNT)
                 {

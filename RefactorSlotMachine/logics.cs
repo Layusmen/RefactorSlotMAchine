@@ -30,6 +30,22 @@ namespace RefactorSlotMachine
         //Random Value Generator
         public static List<char> slotSymbols = new List<char> { 'A', '1', '5', '7', '$', 'M', '8', '9', '!', '#', 'Q', '&', 'C', 'S', 'Y', 'V', 'W', 'R', 'L', 'F' };
 
+        //public static char BettingOption()
+        //{
+
+        //    //Betting amount
+        //    Console.Write("\nPlease choose a betting option (A, H, V, C, D): ");
+        //    char bettingOption = char.ToUpper(Console.ReadKey().KeyChar);
+        //    Console.WriteLine();
+
+        //    ////Check if the betting option is valid
+        //    if (bettingOption != Constants.HORIZONTAL_LINE && bettingOption != Constants.VERTICAL_LINE && bettingOption != Constants.HOR_CENTER_LINE && bettingOption != Constants.VER_CENTER_LINE && bettingOption != Constants.DIAGONAL_LINE)
+        //    {
+        //        Console.WriteLine("Invalid betting option. Please try again.");
+        //    }
+        //    return bettingOption;
+        //}
+
         /// <summary>
         /// Horizonal win  Check
         /// </summary>

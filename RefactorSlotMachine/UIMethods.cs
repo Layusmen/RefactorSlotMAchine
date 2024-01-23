@@ -30,7 +30,7 @@ namespace RefactorSlotMachine
         /// </summary>
         /// <param name="balance"></param>
         /// <returns></returns>
-        public static char ChooseBet(decimal balance)
+        public static char ChooseBet()
         {
             //Betting amount
             Console.Write("\nPlease choose a betting option (A, H, V, C, D): ");
@@ -42,22 +42,26 @@ namespace RefactorSlotMachine
             {
                 Console.WriteLine("Invalid betting option. Please try again.");
             }
+            
+          return bettingOption;
 
+                
+        }
+        public static char[,] BettingResult()
+        { 
             //Display the result
             Console.WriteLine("\nSlot Machine Results: \n");
 
             //Ramdom Pick Generator
 
-            //slots_output = new char[,] { { '1','1','1'}, {'1','1','1' }, {'1','1','1' } };
-
             for (int row = 0; row < Constants.ROW_COUNT; row++)
              {
                  for (int col = 0; col < Constants.COLUMN_COUNT; col++)
                  {
-                    //int randomIndex = logics.randomPickGenerator.Next(logics.slotSymbols.Count);
-                    //logics.slots_Output[row, col] = logics.slotSymbols[randomIndex];
+                    //int randomIndex = Logics.randomPickGenerator.Next(Logics.slotSymbols.Count);
+                    //Logics.slots_Output[row, col] = Logics.slotSymbols[randomIndex];
                    Logics.slots_Output = new char[,] { { '1', '1', '1' }, { '1', '1', '1' }, { '1', '0', '1' } };
-                    Console.Write(Logics.slots_Output[row, col] + "\t");
+                    //Console.Write(Logics.slots_Output[row, col] + "\t");
                  }
                  Console.WriteLine();
 
@@ -65,7 +69,7 @@ namespace RefactorSlotMachine
             //Check if the betting option is valid
 
 
-            return bettingOption;
+            return Logics.slots_Output;
         }
     }
 }
