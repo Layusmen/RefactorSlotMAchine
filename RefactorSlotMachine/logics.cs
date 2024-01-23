@@ -66,10 +66,14 @@ namespace RefactorSlotMachine
                 // Check if there is a win on this row
                 if (horizontalWin)
                 {
-                    Console.WriteLine($"\nCongratulations! You win on the {(row == 0 ? "left" : (row == 1 ? "middle" : "right"))} Horizontal line!");
+                    Console.WriteLine($"\nCongratulations! You win on the {(row == 0 ? "top" : (row == 1 ? "middle" : "middle"))} Horizontal line!");
 
                     // Update balance
                     if (row == 0)
+                    {
+                        winningBalance += Constants.FIRST_WIN;
+                    }
+                    if (row == 0 && row ==1 && row ==2)
                     {
                         winningBalance += Constants.FIRST_WIN;
                     }

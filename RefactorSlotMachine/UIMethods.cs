@@ -43,9 +43,7 @@ namespace RefactorSlotMachine
                 Console.WriteLine("Invalid betting option. Please try again.");
             }
             
-          return bettingOption;
-
-                
+          return bettingOption;        
         }
         public static char[,] BettingResult()
         { 

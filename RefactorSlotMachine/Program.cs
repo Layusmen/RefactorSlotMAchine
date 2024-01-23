@@ -20,7 +20,7 @@ namespace RefactorSlotMachine
                 //char Option = Logics.BettingOption();
                 //Select option
                 char myBet = UIMethods.ChooseBet();
-                _= UIMethods.BettingResult();
+                char[,] betMatrix = UIMethods.BettingResult();
 
                 if (balance < Constants.BET_AMOUNT)
                 {
@@ -30,7 +30,7 @@ namespace RefactorSlotMachine
 
                 //Check for a win on all the lines
 
-                decimal updatedBalance;
+                decimal updatedBalance = balance;
                 if (myBet == Constants.HORIZONTAL_LINE)
                 {
                    updatedBalance = Logics.HorizontalWin();
@@ -57,7 +57,7 @@ namespace RefactorSlotMachine
                     return; // Exit early if there's no valid bet
                 }
 
-                balance = updatedBalance;
+                _ = updatedBalance;
 
 
                 Console.Write("\nDo you want to play again? (press 'y' for yes, any other key for no): ");
@@ -68,10 +68,9 @@ namespace RefactorSlotMachine
 
                 // Restore the initial balance for the next play if user chooses to play again
                 //balance = playAgain ? balance : balance;
-                balance = playAgain ? balance : Constants.INITIAL_BALANCE;
+               balance = playAgain ? updatedBalance: Constants.INITIAL_BALANCE;
                 // Clear the console for the next round
                 Console.Clear();
-
             }
         }
     }
