@@ -46,6 +46,7 @@ namespace RefactorSlotMachine
             
           return bettingOption;        
         }
+
         public static char[,] BettingResult()
         { 
             //Display the result

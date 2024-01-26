@@ -5,15 +5,6 @@ namespace RefactorSlotMachine
 {
     internal class Logics
     {
-        // Declare win flags as class-level variables
-        public static bool horizontalWin;
-        public static bool verticalWin;
-        public static bool diagonalWin;
-        public static bool verticalCenterWin;
-        public static bool horizontalCenterWin;
-        public static bool diagonalCenterWin;
-
-       
         
         public static char[,] slots_Output = new char[Constants.ROW_COUNT, Constants.COLUMN_COUNT];
 
@@ -23,7 +14,10 @@ namespace RefactorSlotMachine
         
         public static List<char> slotSymbols = new List<char> { 'A', '1', '5', '7', '$', 'M', '8', '9', '!', '#', 'Q', '&', 'C', 'S', 'Y', 'V', 'W', 'R', 'L', 'F' };
 
-        
+        /// <summary>
+        /// HorizontalWin
+        /// </summary>
+        /// <returns></returns>
         public static decimal HorizontalWin()
 
         {
@@ -99,6 +93,10 @@ namespace RefactorSlotMachine
             return balance;
         }
 
+        /// <summary>
+        /// VerticalWin
+        /// </summary>
+        /// <returns></returns>
         public static decimal VerticalWin()
         {
             decimal balance = 0;
@@ -168,6 +166,10 @@ namespace RefactorSlotMachine
             return balance;
         }
 
+        /// <summary>
+        /// DiagonalWin
+        /// </summary>
+        /// <returns></returns>
         public static decimal DiagonalWin()
 
         {
@@ -224,11 +226,14 @@ namespace RefactorSlotMachine
                 balance -= Constants.BET_AMOUNT; // Subtract the bet amount from the balance if no win is detected on any of the diagonal lines.
             }
 
-            // Display the updated balance
-            Console.WriteLine($"\nYour current balance: ${balance}");
+            
             return balance;
         }
 
+        /// <summary>
+        /// VerticalCenterWin
+        /// </summary>
+        /// <returns></returns>
         public static decimal VerticalCenterWin()
         {
             decimal balance = 0;
@@ -265,7 +270,10 @@ namespace RefactorSlotMachine
             return balance;
         }
 
-        
+        /// <summary>
+        /// HorizontalCenterWin
+        /// </summary>
+        /// <returns></returns>
         public static decimal HorizontalCenterWin()
         {
             decimal balance = 0;
@@ -297,23 +305,7 @@ namespace RefactorSlotMachine
                 Console.WriteLine("\nYou did not win on the horizontal middle line");
                 balance -= Constants.BET_AMOUNT;
             }
-
-            // Display the updated balance
-            Console.WriteLine($"\nYour current balance: ${balance}");
             return balance;
-
-
-        }
-        
-        public static void InvalidBetting()
-        {
-
-            if (!horizontalWin && !verticalWin && !diagonalWin && !verticalCenterWin && !horizontalCenterWin && !diagonalCenterWin)
-
-            {
-                Console.WriteLine("\nInvalid betting option. Please try again.");
-            }
-
         }
     }
 }

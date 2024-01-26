@@ -1,5 +1,6 @@
 ﻿using RefactorSlotMachine;
 using System;
+using System.Runtime.Intrinsics.X86;
 namespace RefactorSlotMachine
 {
     internal class Program
@@ -19,8 +20,9 @@ namespace RefactorSlotMachine
 
                 //Select option
                 char myBet = UIMethods.ChooseBet();
+                
                 char[,] betMatrix = UIMethods.BettingResult();
-
+                
                 if (balance < Constants.BET_AMOUNT)
                 {
                     Console.WriteLine("\nInsufficient funds to play. Game over!");
@@ -52,9 +54,10 @@ namespace RefactorSlotMachine
                 }
                 else
                 {
-                    Logics.InvalidBetting();
-                    return; // Exit early if there's no valid bet
+                    Console.WriteLine("\nInvalid value insertered, Try Again!");
+                    return;
                 }
+               
 
                 //Bet Calculation
                 if (playAgain)
@@ -82,6 +85,9 @@ namespace RefactorSlotMachine
                 // Clear the console for the next round
                 Console.Clear();
             }
+            
+
+
         }
     }
 }
