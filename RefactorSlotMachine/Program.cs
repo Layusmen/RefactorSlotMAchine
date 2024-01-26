@@ -1,5 +1,4 @@
-﻿using Microsoft.VisualBasic;
-using RefactorSlotMachine;
+﻿using RefactorSlotMachine;
 using System;
 namespace RefactorSlotMachine
 {
@@ -18,7 +17,6 @@ namespace RefactorSlotMachine
                 //Welcome message
                 bool success = UIMethods.WelcomeMessage();
 
-                //char Option = Logics.BettingOption();
                 //Select option
                 char myBet = UIMethods.ChooseBet();
                 char[,] betMatrix = UIMethods.BettingResult();
@@ -29,28 +27,28 @@ namespace RefactorSlotMachine
                     break;
                 }
 
-                //Check for a win on all the lines
 
-                //decimal updatedBalance = balance;
+                //Check for a win on all the lines
+                
                 if (myBet == Constants.HORIZONTAL_LINE)
                 {
-                    balance = Logics.HorizontalWin();
+                    balance += Logics.HorizontalWin();
                 }
                 else if (myBet == Constants.VERTICAL_LINE)
                 {
-                    balance = Logics.VerticalWin();
+                    balance += Logics.VerticalWin();
                 }
                 else if (myBet == Constants.DIAGONAL_LINE)
                 {
-                    balance = Logics.DiagonalWin();
+                    balance += Logics.DiagonalWin();
                 }
                 else if (myBet == Constants.VER_CENTER_LINE)
                 {
-                    balance = Logics.VerticalCenterWin();
+                    balance += Logics.VerticalCenterWin();
                 }
                 else if (myBet == Constants.HOR_CENTER_LINE)
                 {
-                   balance = Logics.HorizontalCenterWin();
+                   balance += Logics.HorizontalCenterWin();
                 }
                 else
                 {
@@ -64,7 +62,6 @@ namespace RefactorSlotMachine
                     updatedBalance = balance - Constants.BET_AMOUNT;
                     //updated balance
                     Console.WriteLine($"\nYour current balance: ${updatedBalance}");
-
                 }
                 else
                 {
@@ -73,13 +70,13 @@ namespace RefactorSlotMachine
                     Console.WriteLine($"\nYour current balance: ${updatedBalance}");
                 }
 
-                //returning updatedBalance
+                //returning updatedBalance to balance
                 balance = updatedBalance;
 
                 Console.Write("\nDo you want to play again? (press 'y' for yes, any other key for no): ");
                 ConsoleKeyInfo key = Console.ReadKey();
 
-                // Check if the pressed key is 'y' for yes
+                // Check if the pressed key is 'y' or 'Y' for yes
                 playAgain = key.KeyChar == 'y' || key.KeyChar == 'Y';
 
                 // Clear the console for the next round
