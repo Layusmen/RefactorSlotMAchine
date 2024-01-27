@@ -25,68 +25,65 @@ namespace RefactorSlotMachine
             //int score = 0;
             decimal balance = 0;
             Console.WriteLine("\nYou chose to play all three horizontal lines with $2: Earn $20 for top line wins, $5 for middle or base line wins.");
+            
+            // check for a win on a specific horizontal line
+            // set winCount to false 
+            int winCount = 0;
 
-            // Horizonal win option start
-
-
-                // Check for horizontal wins and store win details
-                List<string> winDescriptions = new List<string>();
             for (int row = 0; row < slots_Output.GetLength(0); row++)
             {
-                bool equalElements = true;
+                int matchValue = 1;
+
                 for (int column = 1; column < slots_Output.GetLength(1); column++)
                 {
-                    if (slots_Output[row, 0] != slots_Output[row, column])
+                    // Compare the current symbol to the first symbol in the row
+                    if (slots_Output[row, 0] == slots_Output[row, column])
                     {
-                        equalElements = false;
+                        matchValue++;
+                    }
+                    else
+                    {
                         break;
                     }
                 }
 
-                if (equalElements)
+                if (matchValue == slots_Output.GetLength(0))
                 {
-                    string winDescription = "";
-                    if (row == 0)
-                    {
-                        winDescription = "top row";
-                    }
-                    else if (row == slots_Output.GetLength(0) - 1)
-                    {
-                        winDescription = "bottom row";
-                    }
-                    else
-                    {
-                        winDescription = "middle row";
-                    }
+                    winCount++;
 
-                    winDescriptions.Add(winDescription); // Add individual win description
                 }
+
             }
 
-            // Report win details
-            if (winDescriptions.Count > 0)
+            // Handle cases with no win or more than two wins:
+            if (winCount == 0)
             {
-                Console.WriteLine("\nHorizontal wins found:");
-                if (winDescriptions.Count == slots_Output.GetLength(0))
+                Console.WriteLine("\nNo horizontal win found.");
+                balance -= Constants.BET_AMOUNT;
+            }
+            else
+            {
+                decimal winAmount = 0;
+                string winType = "";
+
+                if (winCount == 1)
                 {
-                    balance += Constants.THREE_COMBINE_WIN;
-                    Console.WriteLine("\nYou won on all rows!");
+                    winAmount = Constants.FIRST_WIN;
+                    winType = "Single";
                 }
-                else if (winDescriptions.Count == 2)
+                else if (winCount == 2)
                 {
-                    balance += Constants.TWO_COMBINE_WIN;
-                    Console.WriteLine("\nYou won on the " + string.Join(" and ", winDescriptions) + ".");
+                    winAmount = Constants.TWO_COMBINE_WIN;
+                    winType = "Double";
                 }
                 else
                 {
-                    balance += Constants.FIRST_WIN;
-                    Console.WriteLine("\nYou won on the " + string.Join(", ", winDescriptions) + ".");
+                    winAmount = Constants.THREE_COMBINE_WIN;
+                    winType = "Triple";
                 }
-            }
 
-            else
-            {
-                Console.WriteLine("\nNo horizontal wins found.");
+                balance += winAmount;
+                Console.WriteLine($"\n{winType} win detected on Horizontal line: {winCount}.");
             }
 
             //Horizonal win option end
@@ -100,68 +97,67 @@ namespace RefactorSlotMachine
         public static decimal VerticalWin()
         {
             decimal balance = 0;
-            Console.WriteLine("\nPlay all vertical lines with $2: Earn $20 for first line wins, $5 for second or third line wins.");
+            Console.WriteLine("\nYou chose to play all three vertical lines with $2: Earn $20 for top line wins, $5 for middle or base line wins.");
 
-            // Check for horizontal wins and store win details
-            List<string> winDescriptions = new List<string>();
-            for (int column = 0; column < slots_Output.GetLength(0); column++)
+            // check for a win on a specific horizontal line
+            // set winCount to false 
+            int winCount = 0;
+
+            for (int column = 0; column < slots_Output.GetLength(1); column++)
             {
-                bool equalElements = true;
-                for (int row = 1; row < slots_Output.GetLength(1); row++)
+                int matchValue = 1;
+
+                for (int row = 1; row < slots_Output.GetLength(0); row++)
                 {
-                    if (slots_Output[0, column] != slots_Output[row, column])
+                    // Compare the current symbol to the first symbol in the row
+                    if (slots_Output[0, column] == slots_Output[row, column])
                     {
-                        equalElements = false;
+                        matchValue++;
+                    }
+                    else
+                    {
                         break;
                     }
                 }
 
-                if (equalElements)
+                if (matchValue == slots_Output.GetLength(0))
                 {
-                    string winDescription = "";
-                    if (column == 0)
-                    {
-                        winDescription = "first column";
-                    }
-                    else if (column == slots_Output.GetLength(0) - 1)
-                    {
-                        winDescription = "last column";
-                    }
-                    else
-                    {
-                        winDescription = "middle column";
-                    }
+                    winCount++;
 
-                    winDescriptions.Add(winDescription); // Add individual win description
                 }
+
             }
 
-            // Report win details
-            if (winDescriptions.Count > 0)
+            // Handle cases with no win or more than two wins:
+            if (winCount == 0)
             {
-                Console.WriteLine("\nVertical wins found:");
-                if (winDescriptions.Count == slots_Output.GetLength(0))
+                Console.WriteLine("\nNo vertical win found.");
+                balance -= Constants.BET_AMOUNT;
+            }
+            else
+            {
+                decimal winAmount = 0;
+                string winType = "";
+
+                if (winCount == 1)
                 {
-                    balance += Constants.THREE_COMBINE_WIN;
-                    Console.WriteLine("\nYou won on all columns!");
+                    winAmount = Constants.FIRST_WIN;
+                    winType = "Single";
                 }
-                else if (winDescriptions.Count == 2)
+                else if (winCount == 2)
                 {
-                    balance += Constants.TWO_COMBINE_WIN;
-                    Console.WriteLine("\nYou won on the " + string.Join(" and ", winDescriptions) + ".");
+                    winAmount = Constants.TWO_COMBINE_WIN;
+                    winType = "Double";
                 }
                 else
                 {
-                    balance += Constants.FIRST_WIN;
-                    Console.WriteLine("\nYou won on the " + string.Join(", ", winDescriptions) + ".");
+                    winAmount = Constants.THREE_COMBINE_WIN;
+                    winType = "Triple";
                 }
-            }
 
-            else
-            {
-                Console.WriteLine("\nNo vertical wins found.");
+                balance += winAmount;
+                Console.WriteLine($"\n{winType} win detected on vertical line: {winCount}. Balance: {balance}");
             }
-
 
             return balance;
         }
