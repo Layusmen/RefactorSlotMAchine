@@ -34,7 +34,9 @@ namespace RefactorSlotMachine
                 
                 if (myBet == Constants.HORIZONTAL_LINE)
                 {
+                    
                     balance += Logics.HorizontalWin();
+
                 }
                 else if (myBet == Constants.VERTICAL_LINE)
                 {

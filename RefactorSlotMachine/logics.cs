@@ -19,17 +19,14 @@ namespace RefactorSlotMachine
         /// </summary>
         /// <returns></returns>
         public static decimal HorizontalWin()
-
         {
-            //Horizonal win option
-            //int score = 0;
+            
             decimal balance = 0;
             Console.WriteLine("\nYou chose to play all three horizontal lines with $2: Earn $20 for top line wins, $5 for middle or base line wins.");
             
             // check for a win on a specific horizontal line
             // set winCount to false 
-            int winCount = 0;
-
+            decimal winCount = 0;
             for (int row = 0; row < slots_Output.GetLength(0); row++)
             {
                 int matchValue = 1;
@@ -54,42 +51,11 @@ namespace RefactorSlotMachine
                 }
 
             }
-
-            // Handle cases with no win or more than two wins:
-            if (winCount == 0)
-            {
-                Console.WriteLine("\nNo horizontal win found.");
-                balance -= Constants.BET_AMOUNT;
-            }
-            else
-            {
-                decimal winAmount = 0;
-                string winType = "";
-
-                if (winCount == 1)
-                {
-                    winAmount = Constants.FIRST_WIN;
-                    winType = "Single";
-                }
-                else if (winCount == 2)
-                {
-                    winAmount = Constants.TWO_COMBINE_WIN;
-                    winType = "Double";
-                }
-                else
-                {
-                    winAmount = Constants.THREE_COMBINE_WIN;
-                    winType = "Triple";
-                }
-
-                balance += winAmount;
-                Console.WriteLine($"\n{winType} win detected on Horizontal line: {winCount}.");
-            }
-
-            //Horizonal win option end
-            return balance;
+            decimal result = UIMethods.HorizontalHandleWinResults(winCount, balance);
+            return result;
         }
 
+      
         /// <summary>
         /// VerticalWin
         /// </summary>
@@ -127,39 +93,8 @@ namespace RefactorSlotMachine
                 }
 
             }
-
-            // Handle cases with no win or more than two wins:
-            if (winCount == 0)
-            {
-                Console.WriteLine("\nNo vertical win found.");
-                balance -= Constants.BET_AMOUNT;
-            }
-            else
-            {
-                decimal winAmount = 0;
-                string winType = "";
-
-                if (winCount == 1)
-                {
-                    winAmount = Constants.FIRST_WIN;
-                    winType = "Single";
-                }
-                else if (winCount == 2)
-                {
-                    winAmount = Constants.TWO_COMBINE_WIN;
-                    winType = "Double";
-                }
-                else
-                {
-                    winAmount = Constants.THREE_COMBINE_WIN;
-                    winType = "Triple";
-                }
-
-                balance += winAmount;
-                Console.WriteLine($"\n{winType} win detected on vertical line: {winCount}. Balance: {balance}");
-            }
-
-            return balance;
+            decimal result = UIMethods.VerticalHandleWinResults(winCount, balance);
+            return result;
         }
 
         /// <summary>
@@ -267,7 +202,7 @@ namespace RefactorSlotMachine
         }
 
         /// <summary>
-        /// HorizontalCenterWin
+        /// HorizontalCenterWins
         /// </summary>
         /// <returns></returns>
         public static decimal HorizontalCenterWin()
