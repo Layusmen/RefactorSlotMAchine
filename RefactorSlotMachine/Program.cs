@@ -15,13 +15,14 @@ namespace RefactorSlotMachine
             while (playAgain)
             {
                 decimal updatedBalance;
+
                 //Welcome message
-                bool success = UIMethods.WelcomeMessage();
+                UIMethods.WelcomeMessage();
 
                 //Select option
                 char myBet = UIMethods.ChooseBet();
                 
-                char[,] betMatrix = UIMethods.BettingResult();
+                UIMethods.BettingResult();
                 
                 if (balance < Constants.BET_AMOUNT)
                 {

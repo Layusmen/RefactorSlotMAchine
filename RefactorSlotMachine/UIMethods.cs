@@ -9,7 +9,7 @@ namespace RefactorSlotMachine
         /// Welcome Message
         /// </summary>
         /// <returns></returns>
-        public static bool WelcomeMessage()
+        public static void WelcomeMessage()
         {
 
             //First messages
@@ -23,7 +23,6 @@ namespace RefactorSlotMachine
             Console.WriteLine("- (V) Play horizontal center line alone with $2: Earn $30.");
             Console.WriteLine("- (C) Play vertical center line with $2: Earn $30.");
             Console.WriteLine("- (D) Play diagonals with $2: Earn $20 for any and $60 for the two winning combination.");
-            return true;
         }
 
         /// <summary>
@@ -51,7 +50,7 @@ namespace RefactorSlotMachine
         /// BettingResult
         /// </summary>
         /// <returns></returns>
-        public static char[,] BettingResult()
+        public static void BettingResult()
         {
             //Display the result
             Console.WriteLine("\nSlot Machine Results: \n");
@@ -73,12 +72,12 @@ namespace RefactorSlotMachine
             //Check if the betting option is valid
 
 
-            return Logics.slots_Output;
+            //return Logics.slots_Output;
         }
 
 
         /// <summary>
-        /// HandleWinResults
+        /// HorizontalHandleWinResults
         /// </summary>
         /// <param name="winCount"></param>
         /// <param name="balance"></param>
@@ -117,6 +116,14 @@ namespace RefactorSlotMachine
 
             return balance;
         }
+
+
+        /// <summary>
+        /// VerticalHandleWinResults
+        /// </summary>
+        /// <param name="winCount"></param>
+        /// <param name="balance"></param>
+        /// <returns></returns>
         public static decimal VerticalHandleWinResults(decimal winCount, decimal balance)
         {
             // Handle cases with no win or more than two wins:

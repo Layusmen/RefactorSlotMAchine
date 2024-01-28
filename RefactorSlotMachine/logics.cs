@@ -5,13 +5,20 @@ namespace RefactorSlotMachine
 {
     internal class Logics
     {
-        
+
+        /// <summary>
+        /// slots_Output
+        /// </summary>
         public static char[,] slots_Output = new char[Constants.ROW_COUNT, Constants.COLUMN_COUNT];
 
-        
+        /// <summary>
+        /// Random randomPickGenerator
+        /// </summary>
         public readonly static Random randomPickGenerator = new Random();
 
-        
+        /// <summary>
+        /// slotSymbols
+        /// </summary>
         public static List<char> slotSymbols = new List<char> { 'A', '1', '5', '7', '$', 'M', '8', '9', '!', '#', 'Q', '&', 'C', 'S', 'Y', 'V', 'W', 'R', 'L', 'F' };
 
         /// <summary>
@@ -233,5 +240,8 @@ namespace RefactorSlotMachine
             }
             return balance;
         }
+
+        
+
     }
 }
