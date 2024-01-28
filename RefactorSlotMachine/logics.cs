@@ -117,12 +117,7 @@ namespace RefactorSlotMachine
                     break;
                 }
             }
-            if (isMainDiagonalWin)
-            {
-                Console.WriteLine("\nWin Detected on Main Diagonal");
-                balance += Constants.FIRST_WIN; // Assuming $20 for a win on the first row
-            }
-
+            
             //Check the secondary diagonal (top-right to bottom-left)
             bool isSecondaryDiagonalWin = true;
             for (int i = 1; i < Constants.ROW_COUNT; i++)
@@ -140,6 +135,13 @@ namespace RefactorSlotMachine
                 Console.WriteLine("\nWin Detected on Both Diagonals");
                 balance += Constants.CENTER_WIN; // Assuming $20 for a win on the first row
             }
+            else if (isMainDiagonalWin)
+            {
+                Console.WriteLine("\nWin Detected on Main Diagonal");
+                balance += Constants.FIRST_WIN; // Assuming $20 for a win on the first row
+
+            }
+
             else if (isSecondaryDiagonalWin)
             {
                 Console.WriteLine("\nWin Detected on Secondary Diagonal");
@@ -156,8 +158,6 @@ namespace RefactorSlotMachine
                 Console.WriteLine("\nNo win Detected on any of the Diagonal lines");
                 balance -= Constants.BET_AMOUNT; // Subtract the bet amount from the balance if no win is detected on any of the diagonal lines.
             }
-
-            
             return balance;
         }
 
@@ -193,9 +193,6 @@ namespace RefactorSlotMachine
             {
                 Console.WriteLine("\nYou did not win on the Vertical Center line");
 
-                // Subtract the bet amount from the balance
-                balance -= Constants.BET_AMOUNT;
-
             }
             
             return balance;
@@ -229,8 +226,6 @@ namespace RefactorSlotMachine
 
                 balance += Constants.FIRST_WIN; // Assuming $20 for a win on the first row
             }
-
-
             else
             {
                 Console.WriteLine("\nYou did not win on the horizontal middle line");
