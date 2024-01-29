@@ -58,7 +58,7 @@ namespace RefactorSlotMachine
                 }
 
             }
-            decimal result = UIMethods.HorizontalHandleWinResults(winCount, balance);
+            decimal result = Logics.HorizontalHandleWinResults(winCount, balance);
             return result;
         }
 
@@ -66,15 +66,15 @@ namespace RefactorSlotMachine
         {
             if (winCount == 1)
             {
-                return (Constants.FIRST_WIN, "Single");
+                return (Constants.FIRST_WIN, Constants.SINGLE);
             }
             else if (winCount == 2)
             {
-                return (Constants.TWO_COMBINE_WIN, "Double");
+                return (Constants.TWO_COMBINE_WIN, Constants.DOUBLE);
             }
             else
             {
-                return (Constants.THREE_COMBINE_WIN, "Triple");
+                return (Constants.THREE_COMBINE_WIN, Constants.TRIPPLE);
             }
         }
         
@@ -282,7 +282,22 @@ namespace RefactorSlotMachine
             }
         }
 
+        public static decimal HorizontalHandleWinResults(decimal winCount, decimal balance)
+        {
+            if (winCount == 0)
+            {
+               UIMethods.NoWinDetected();
+                //balance -= Constants.BET_AMOUNT;
+            }
+            else
+            {
+                (decimal winAmount, string winType) = Logics.CalculateWinDetails(winCount);
+                balance += winAmount;
+                UIMethods.PrintWin(winType, winCount);
+            }
 
+            return balance;
+        }
         public static decimal VerticalHandleWinResults(decimal winCount, decimal balance)
         {
             if (winCount == 0)
@@ -294,7 +309,7 @@ namespace RefactorSlotMachine
             {
                 (decimal winAmount, string winType) = Logics.CalculateWinDetails(winCount);  // Call the new function
                 balance += winAmount;
-                Console.WriteLine($"\n{winType} win detected on vertical line: {winCount}. Balance: {balance}");
+                UIMethods.PrintWin(winType, winCount);
             }
 
             return balance;

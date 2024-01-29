@@ -75,22 +75,7 @@ namespace RefactorSlotMachine
             //return Logics.slots_Output;
         }
 
-        public static decimal HorizontalHandleWinResults(decimal winCount, decimal balance)
-        {
-            if (winCount == 0)
-            {
-                Console.WriteLine("\nNo horizontal win found.");
-                //balance -= Constants.BET_AMOUNT;
-            }
-            else
-            {
-                (decimal winAmount, string winType) = Logics.CalculateWinDetails(winCount);
-                balance += winAmount;
-                Console.WriteLine($"\n{winType} win detected on Horizontal line: {winCount}.");
-            }
-
-            return balance;
-        }
+       
 
         /// <summary>
         /// VerticalHandleWinResults
@@ -167,6 +152,11 @@ namespace RefactorSlotMachine
         public static void FundInsufficient()
         {
             Console.WriteLine("\nInsufficient funds to play. Game over!");
+        }
+
+       public static void PrintWin(string winType, decimal winCount)
+        {
+            Console.WriteLine($"\n{winType} win detected on line: {winCount}.");
         }
     }
 

@@ -12,6 +12,11 @@ namespace RefactorSlotMachine
         public const char DIAGONAL_LINE = 'D';
         public const char CAPITALYES = 'Y';
         public const char SMALLYES = 'y';
+
+        public const string SINGLE = "Single";
+        public const string DOUBLE = "Double";
+        public const string TRIPPLE = "Tripple";
+
         public const int ROW_COUNT = 3;
         public const int COLUMN_COUNT = 3;
 
