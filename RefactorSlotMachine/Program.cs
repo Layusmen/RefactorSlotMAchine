@@ -36,13 +36,13 @@ namespace RefactorSlotMachine
                 {
                     updatedBalance = balance - Constants.BET_AMOUNT;
                     //updated balance
-                    Console.WriteLine($"\nYour current balance: ${updatedBalance}");
+                    UIMethods.ValueUpdate(updatedBalance);
                 }
                 else
                 {
                     updatedBalance = balance + Constants.INITIAL_BALANCE;
                     //updated balance
-                    Console.WriteLine($"\nYour current balance: ${updatedBalance}");
+                    UIMethods.ValueUpdate(updatedBalance);
                 }
 
                 //returning updatedBalance to balance

@@ -29,8 +29,8 @@ namespace RefactorSlotMachine
         {
             
             decimal balance = 0;
-            Console.WriteLine("\nYou chose to play all three horizontal lines with $2: Earn $20 for top line wins, $5 for middle or base line wins.");
-            
+
+            UIMethods.HorizontalPlay();
             // check for a win on a specific horizontal line
             // set winCount to false 
             decimal winCount = 0;
@@ -87,8 +87,7 @@ namespace RefactorSlotMachine
         public static decimal VerticalWin()
         {
             decimal balance = 0;
-            Console.WriteLine("\nYou chose to play all three vertical lines with $2: Earn $20 for top line wins, $5 for middle or base line wins.");
-
+            UIMethods.VerticalPlay();
             // check for a win on a specific horizontal line
             // set winCount to false 
             int winCount = 0;
@@ -129,7 +128,7 @@ namespace RefactorSlotMachine
 
         {
             decimal balance = 0;
-            Console.WriteLine("Play diagonals with $2: Earn $20 for any winning combination, $30 for both.");
+            UIMethods.DiagonalPlay();
 
             //Check the main diagonal (top-left to bottom-right)
             bool isMainDiagonalWin = true;
@@ -156,30 +155,30 @@ namespace RefactorSlotMachine
             {
 
                 // Handle the case when there's a win on both diagonals
-                Console.WriteLine("\nWin Detected on Both Diagonals");
+                UIMethods.WinDetected();
                 balance += Constants.CENTER_WIN; // Assuming $20 for a win on the first row
             }
             else if (isMainDiagonalWin)
             {
-                Console.WriteLine("\nWin Detected on Main Diagonal");
+                UIMethods.WinDetected();
                 balance += Constants.FIRST_WIN; // Assuming $20 for a win on the first row
 
             }
 
             else if (isSecondaryDiagonalWin)
             {
-                Console.WriteLine("\nWin Detected on Secondary Diagonal");
+                UIMethods.WinDetected();
                 balance += Constants.FIRST_WIN; // Assuming $20 for a win on the first row
             }
             else if (!isSecondaryDiagonalWin && !isMainDiagonalWin)
             {
-                Console.WriteLine("\nNo win Detected on any of the Diagonal lines");
+                UIMethods.NoWinDetected();
                 balance -= Constants.BET_AMOUNT;
             }
 
             else
             {
-                Console.WriteLine("\nNo win Detected on any of the Diagonal lines");
+                UIMethods.NoWinDetected();
                 balance -= Constants.BET_AMOUNT; // Subtract the bet amount from the balance if no win is detected on any of the diagonal lines.
             }
             return balance;
@@ -192,7 +191,7 @@ namespace RefactorSlotMachine
         public static decimal VerticalCenterWin()
         {
             decimal balance = 0;
-            Console.WriteLine("\nYou chose to play vertical center line with $2: Earn $30.");
+            UIMethods.VerticalCenterPlay();
 
             // Check for a win on a specific vertical line
             bool verticalCenterWin = true;
@@ -208,14 +207,14 @@ namespace RefactorSlotMachine
 
             if (verticalCenterWin)
             {
-                Console.WriteLine($"\nCongratulations! You win on the center vertical line!");
+                UIMethods.WinDetected();
 
                 // Add win amount to the balance
                 balance += Constants.CENTER_WIN;
             }
             if (!verticalCenterWin)
             {
-                Console.WriteLine("\nYou did not win on the Vertical Center line");
+                UIMethods.NoWinDetected();
 
             }
             
@@ -229,7 +228,7 @@ namespace RefactorSlotMachine
         public static decimal HorizontalCenterWin()
         {
             decimal balance = 0;
-            Console.WriteLine("\nPlay horizontal center line alone with $2: Earn $30.");
+            UIMethods.HorizontalCenterPlay();
 
             bool middleHorizontalWin = true;
 
@@ -246,13 +245,13 @@ namespace RefactorSlotMachine
             }
             if (middleHorizontalWin)
             {
-                Console.WriteLine($"\nCongratulations! You win on the horizontal middle line!");
+                UIMethods.MiddleHorizontalPlay();
 
                 balance += Constants.FIRST_WIN; // Assuming $20 for a win on the first row
             }
             else
             {
-                Console.WriteLine("\nYou did not win on the horizontal middle line");
+                UIMethods.NoWinDetected();
                 balance -= Constants.BET_AMOUNT;
             }
             return balance;
@@ -278,7 +277,7 @@ namespace RefactorSlotMachine
                     balance += Logics.HorizontalCenterWin();
                     break;
                 default:
-                    Console.WriteLine("\nInvalid value inserted, Try Again!");
+                    UIMethods.InvalidValue();
                     return;
             }
         }

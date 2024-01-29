@@ -76,12 +76,8 @@ namespace RefactorSlotMachine
         }
 
 
-        /// <summary>
-        /// HorizontalHandleWinResults
-        /// </summary>
-        /// <param name="winCount"></param>
-        /// <param name="balance"></param>
-        /// <returns></returns>
+
+
         public static decimal HorizontalHandleWinResults(decimal winCount, decimal balance)
         {
             if (winCount == 0)
@@ -109,7 +105,7 @@ namespace RefactorSlotMachine
         {
             if (winCount == 0)
             {
-                Console.WriteLine("\nNo vertical win found.");
+                Console.WriteLine("\nYou did not win");
                 balance -= Constants.BET_AMOUNT;
             }
             else
@@ -133,7 +129,7 @@ namespace RefactorSlotMachine
                 Console.WriteLine("\nInsufficient funds to play. Game over!");
                 Environment.Exit(0);
             }
-     
+
         }
 
         /// <summary>
@@ -141,7 +137,58 @@ namespace RefactorSlotMachine
         /// </summary>
         public static void PlayAgainKey()
         {
-                Console.Write("\nDo you want to play again? (press 'y' for yes, any other key for no): ");
+            Console.Write("\nDo you want to play again? (press 'y' for yes, any other key for no): ");
+        }
+
+
+        public static void HorizontalPlay()
+        {
+            Console.WriteLine("\nYou chose to play all three horizontal lines with $2: Earn $20 for top line wins, $5 for middle or base line wins.");
+        }
+
+        public static void VerticalPlay()
+        {
+            Console.WriteLine("\nYou chose to play all three vertical lines with $2: Earn $20 for top line wins, $5 for middle or base line wins.");
+        }
+        public static void DiagonalPlay()
+        {
+
+            Console.WriteLine("Play diagonals with $2: Earn $20 for any winning combination, $30 for both.");
+        }
+
+        public static void VerticalCenterPlay()
+        {
+            Console.WriteLine("\nYou chose to play vertical center line with $2: Earn $30.");
+        }
+
+        public static void HorizontalCenterPlay()
+        {
+
+            Console.WriteLine("\nPlay horizontal center line alone with $2: Earn $30.");
+        }
+
+        public static void MiddleHorizontalPlay()
+        {
+            Console.WriteLine($"\nCongratulations! You win on the horizontal middle line!");
+        }
+
+        public static void NoWinDetected()
+        {
+            Console.WriteLine("\nNo win Detected");
+        }
+        public static void WinDetected()
+        {
+            Console.WriteLine($"\nCongratulations! You won!");
+        }
+
+        public static void InvalidValue()
+        {
+            Console.WriteLine("\nInvalid value inserted, Try Again!");
+        }
+
+        public static void ValueUpdate(decimal updatedBalance)
+        {
+            Console.WriteLine($"\nYour current balance: ${updatedBalance}");
         }
     }
 
