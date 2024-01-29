@@ -116,7 +116,7 @@ namespace RefactorSlotMachine
                 }
 
             }
-            decimal result = UIMethods.VerticalHandleWinResults(winCount, balance);
+            decimal result = Logics.VerticalHandleWinResults(winCount, balance);
             return result;
         }
 
@@ -280,6 +280,34 @@ namespace RefactorSlotMachine
                     UIMethods.InvalidValue();
                     return;
             }
+        }
+
+
+        public static decimal VerticalHandleWinResults(decimal winCount, decimal balance)
+        {
+            if (winCount == 0)
+            {
+                UIMethods.NoWinDetected ();
+                balance -= Constants.BET_AMOUNT;
+            }
+            else
+            {
+                (decimal winAmount, string winType) = Logics.CalculateWinDetails(winCount);  // Call the new function
+                balance += winAmount;
+                Console.WriteLine($"\n{winType} win detected on vertical line: {winCount}. Balance: {balance}");
+            }
+
+            return balance;
+        }
+
+        public static void CheckGameOver(decimal balance)
+        {
+            if (balance < Constants.BET_AMOUNT)
+            {
+                UIMethods.FundInsufficient();
+                Environment.Exit(0);
+            }
+
         }
 
     }

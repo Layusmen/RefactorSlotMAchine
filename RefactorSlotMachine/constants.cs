@@ -10,7 +10,8 @@ namespace RefactorSlotMachine
         public const char HOR_CENTER_LINE = 'V';
         public const char VER_CENTER_LINE = 'C';
         public const char DIAGONAL_LINE = 'D';
-
+        public const char CAPITALYES = 'Y';
+        public const char SMALLYES = 'y';
         public const int ROW_COUNT = 3;
         public const int COLUMN_COUNT = 3;
 

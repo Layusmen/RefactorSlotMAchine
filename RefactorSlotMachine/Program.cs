@@ -25,7 +25,7 @@ namespace RefactorSlotMachine
                 UIMethods.BettingResult();
 
                 // Check if it is gameover
-                UIMethods.CheckGameOver(balance);
+                Logics.CheckGameOver(balance);
 
 
                 //Check for a win on all the lines
@@ -53,7 +53,7 @@ namespace RefactorSlotMachine
                 ConsoleKeyInfo key = Console.ReadKey();
 
                 // Check if the pressed key is 'y' or 'Y' for yes
-                playAgain = key.KeyChar == 'y' || key.KeyChar == 'Y';
+                playAgain = key.KeyChar == Constants.SMALLYES || key.KeyChar == Constants.CAPITALYES;
 
                 // Clear the console for the next round
                 Console.Clear();
