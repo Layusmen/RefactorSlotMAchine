@@ -22,6 +22,7 @@ namespace RefactorSlotMachine
                 //Select option
                 char myBet = UIMethods.ChooseBet();
                 
+                //Betting Results Removed
                 UIMethods.BettingResult();
                 
                 if (balance < Constants.BET_AMOUNT)

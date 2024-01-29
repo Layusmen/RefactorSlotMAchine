@@ -82,7 +82,8 @@ namespace RefactorSlotMachine
         /// <param name="winCount"></param>
         /// <param name="balance"></param>
         /// <returns></returns>
-        public static decimal HorizontalHandleWinResults(decimal winCount, decimal balance)
+       /*
+ public static decimal HorizontalHandleWinResults(decimal winCount, decimal balance)
         {
             if (winCount == 0)
             {
@@ -92,6 +93,7 @@ namespace RefactorSlotMachine
             else
             {
                 decimal winAmount = 0;
+
                 string winType = "";
 
                 if (winCount == 1)
@@ -116,6 +118,43 @@ namespace RefactorSlotMachine
 
             return balance;
         }
+        */
+
+       
+
+        public static decimal HorizontalHandleWinResults(decimal winCount, decimal balance)
+        {
+            if (winCount == 0)
+            {
+                Console.WriteLine("\nNo horizontal win found.");
+                balance -= Constants.BET_AMOUNT;
+            }
+            else
+            {
+                (decimal winAmount, string winType) = Logics.CalculateWinDetails(winCount); 
+                balance += winAmount;
+                Console.WriteLine($"\n{winType} win detected on Horizontal line: {winCount}.");
+            }
+
+            return balance;
+        }
+
+        public static decimal VerticalHandleWinResults(decimal winCount, decimal balance)
+        {
+            if (winCount == 0)
+            {
+                Console.WriteLine("\nNo vertical win found.");
+                balance -= Constants.BET_AMOUNT;
+            }
+            else
+            {
+                (decimal winAmount, string winType) = Logics.CalculateWinDetails(winCount);  // Call the new function
+                balance += winAmount;
+                Console.WriteLine($"\n{winType} win detected on vertical line: {winCount}. Balance: {balance}");
+            }
+
+            return balance;
+        }
 
 
         /// <summary>
@@ -124,41 +163,6 @@ namespace RefactorSlotMachine
         /// <param name="winCount"></param>
         /// <param name="balance"></param>
         /// <returns></returns>
-        public static decimal VerticalHandleWinResults(decimal winCount, decimal balance)
-        {
-            // Handle cases with no win or more than two wins:
-            if (winCount == 0)
-            {
-                Console.WriteLine("\nNo vertical win found.");
-                balance -= Constants.BET_AMOUNT;
-            }
-            else
-            {
-                decimal winAmount = 0;
-                string winType = "";
-
-                if (winCount == 1)
-                {
-                    winAmount = Constants.FIRST_WIN;
-                    winType = "Single";
-                }
-                else if (winCount == 2)
-                {
-                    winAmount = Constants.TWO_COMBINE_WIN;
-                    winType = "Double";
-                }
-                else
-                {
-                    winAmount = Constants.THREE_COMBINE_WIN;
-                    winType = "Triple";
-                }
-
-                balance += winAmount;
-                Console.WriteLine($"\n{winType} win detected on vertical line: {winCount}. Balance: {balance}");
-            }
-
-            return balance;
-        }
     }
 
 }

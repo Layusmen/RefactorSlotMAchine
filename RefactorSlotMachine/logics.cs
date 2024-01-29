@@ -62,7 +62,24 @@ namespace RefactorSlotMachine
             return result;
         }
 
-      
+        public static (decimal winAmount, string winType) CalculateWinDetails(decimal winCount)
+        {
+            if (winCount == 1)
+            {
+                return (Constants.FIRST_WIN, "Single");
+            }
+            else if (winCount == 2)
+            {
+                return (Constants.TWO_COMBINE_WIN, "Double");
+            }
+            else
+            {
+                return (Constants.THREE_COMBINE_WIN, "Triple");
+            }
+        }
+        
+        
+        
         /// <summary>
         /// VerticalWin
         /// </summary>
