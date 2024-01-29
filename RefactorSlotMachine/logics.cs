@@ -258,7 +258,30 @@ namespace RefactorSlotMachine
             return balance;
         }
 
-        
+        public static void MyBetProcess(int myBet, decimal balance)
+        {
+            switch (myBet)
+            {
+                case Constants.HORIZONTAL_LINE:
+                    balance += Logics.HorizontalWin();
+                    break;
+                case Constants.VERTICAL_LINE:
+                    balance += Logics.VerticalWin();
+                    break;
+                case Constants.DIAGONAL_LINE:
+                    balance += Logics.DiagonalWin();
+                    break;
+                case Constants.VER_CENTER_LINE:
+                    balance += Logics.VerticalCenterWin();
+                    break;
+                case Constants.HOR_CENTER_LINE:
+                    balance += Logics.HorizontalCenterWin();
+                    break;
+                default:
+                    Console.WriteLine("\nInvalid value inserted, Try Again!");
+                    return;
+            }
+        }
 
     }
 }

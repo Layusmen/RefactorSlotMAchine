@@ -63,7 +63,7 @@ namespace RefactorSlotMachine
                 {
                     //int randomIndex = Logics.randomPickGenerator.Next(Logics.slotSymbols.Count);
                     //Logics.slots_Output[row, col] = Logics.slotSymbols[randomIndex];
-                    Logics.slots_Output = new char[,] { { '1', '1', '1' }, { '1', '1', '1' }, { '1', '0', '1' } };
+                    Logics.slots_Output = new char[,] { { '1', '0', '1' }, { '1', 'o', '1' }, { '1', '0', '1' } };
                     Console.Write(Logics.slots_Output[row, col] + "\t");
                 }
                 Console.WriteLine();
@@ -82,56 +82,16 @@ namespace RefactorSlotMachine
         /// <param name="winCount"></param>
         /// <param name="balance"></param>
         /// <returns></returns>
-       /*
- public static decimal HorizontalHandleWinResults(decimal winCount, decimal balance)
-        {
-            if (winCount == 0)
-            {
-                Console.WriteLine("\nNo horizontal win found.");
-                balance -= Constants.BET_AMOUNT;
-            }
-            else
-            {
-                decimal winAmount = 0;
-
-                string winType = "";
-
-                if (winCount == 1)
-                {
-                    winAmount = Constants.FIRST_WIN;
-                    winType = "Single";
-                }
-                else if (winCount == 2)
-                {
-                    winAmount = Constants.TWO_COMBINE_WIN;
-                    winType = "Double";
-                }
-                else
-                {
-                    winAmount = Constants.THREE_COMBINE_WIN;
-                    winType = "Triple";
-                }
-
-                balance += winAmount;
-                Console.WriteLine($"\n{winType} win detected on Horizontal line: {winCount}.");
-            }
-
-            return balance;
-        }
-        */
-
-       
-
         public static decimal HorizontalHandleWinResults(decimal winCount, decimal balance)
         {
             if (winCount == 0)
             {
                 Console.WriteLine("\nNo horizontal win found.");
-                balance -= Constants.BET_AMOUNT;
+                //balance -= Constants.BET_AMOUNT;
             }
             else
             {
-                (decimal winAmount, string winType) = Logics.CalculateWinDetails(winCount); 
+                (decimal winAmount, string winType) = Logics.CalculateWinDetails(winCount);
                 balance += winAmount;
                 Console.WriteLine($"\n{winType} win detected on Horizontal line: {winCount}.");
             }
@@ -139,6 +99,12 @@ namespace RefactorSlotMachine
             return balance;
         }
 
+        /// <summary>
+        /// VerticalHandleWinResults
+        /// </summary>
+        /// <param name="winCount"></param>
+        /// <param name="balance"></param>
+        /// <returns></returns>
         public static decimal VerticalHandleWinResults(decimal winCount, decimal balance)
         {
             if (winCount == 0)
@@ -156,13 +122,27 @@ namespace RefactorSlotMachine
             return balance;
         }
 
+        /// <summary>
+        /// CheckGameOver
+        /// </summary>
+        /// <param name="balance"></param>
+        public static void CheckGameOver(decimal balance)
+        {
+            if (balance < Constants.BET_AMOUNT)
+            {
+                Console.WriteLine("\nInsufficient funds to play. Game over!");
+                Environment.Exit(0);
+            }
+     
+        }
 
         /// <summary>
-        /// VerticalHandleWinResults
+        /// PlayAgainKey
         /// </summary>
-        /// <param name="winCount"></param>
-        /// <param name="balance"></param>
-        /// <returns></returns>
+        public static void PlayAgainKey()
+        {
+                Console.Write("\nDo you want to play again? (press 'y' for yes, any other key for no): ");
+        }
     }
 
 }
