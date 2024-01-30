@@ -4,6 +4,9 @@
 
 
         // Create the list
+        /// <summary>
+        ///betting Select List
+        /// </summary>
         public static List<char> bettingSelect = new List<char>()
         {
             HORIZONTAL_LINE,
@@ -13,5 +16,8 @@
             DIAGONAL_LINE
         };
 
+        /// <summary>
+        /// Yes to Play Again
+        /// </summary>
         public const char CAPITALYES = 'Y';        public const char SMALLYES = 'y';        public const string SINGLE = "Single";        public const string DOUBLE = "Double";        public const string TRIPPLE = "Tripple";        public const int ROW_COUNT = 3;        public const int COLUMN_COUNT = 3;        public const decimal BET_AMOUNT = 2.00M;        public const decimal INITIAL_BALANCE = 10.00M;        public const decimal FIRST_WIN = 20.00M;        public const decimal TWO_COMBINE_WIN = 40.00M;        public const decimal CENTER_WIN = 30.00M;        public const decimal THREE_COMBINE_WIN = 60.00M;        public const decimal SECOND_WIN = 10.00M;
     }}
