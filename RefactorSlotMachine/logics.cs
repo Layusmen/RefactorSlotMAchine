@@ -22,7 +22,7 @@ namespace RefactorSlotMachine
         public static List<char> slotSymbols = new List<char> { 'A', '1', '5', '7', '$', 'M', '8', '9', '!', '#', 'Q', '&', 'C', 'S', 'Y', 'V', 'W', 'R', 'L', 'F' };
 
         /// <summary>
-        /// HorizontalWin
+        /// Horizontal Win Check
         /// </summary>
         /// <returns></returns>
         public static decimal HorizontalWin()
@@ -62,6 +62,12 @@ namespace RefactorSlotMachine
             return result;
         }
 
+
+        /// <summary>
+        /// Calculate Win Details
+        /// </summary>
+        /// <param name="winCount"></param>
+        /// <returns></returns>
         public static (decimal winAmount, string winType) CalculateWinDetails(decimal winCount)
         {
             if (winCount == 1)
@@ -81,7 +87,7 @@ namespace RefactorSlotMachine
         
         
         /// <summary>
-        /// VerticalWin
+        /// Vertical Win Check
         /// </summary>
         /// <returns></returns>
         public static decimal VerticalWin()
@@ -121,7 +127,7 @@ namespace RefactorSlotMachine
         }
 
         /// <summary>
-        /// DiagonalWin
+        /// Diagonal Win CHeck
         /// </summary>
         /// <returns></returns>
         public static decimal DiagonalWin()
@@ -185,7 +191,7 @@ namespace RefactorSlotMachine
         }
 
         /// <summary>
-        /// VerticalCenterWin
+        /// Vertical Center Win Check
         /// </summary>
         /// <returns></returns>
         public static decimal VerticalCenterWin()
@@ -222,7 +228,7 @@ namespace RefactorSlotMachine
         }
 
         /// <summary>
-        /// HorizontalCenterWins
+        /// Horizontal Center Win Check
         /// </summary>
         /// <returns></returns>
         public static decimal HorizontalCenterWin()
@@ -257,6 +263,11 @@ namespace RefactorSlotMachine
             return balance;
         }
 
+        /// <summary>
+        /// Check Bet Processes
+        /// </summary>
+        /// <param name="myBet"></param>
+        /// <param name="balance"></param>
         public static void MyBetProcess(int myBet, decimal balance)
         {
             switch (myBet)
@@ -282,6 +293,13 @@ namespace RefactorSlotMachine
             }
         }
 
+
+        /// <summary>
+        /// Handles Horizontal Wins Results
+        /// </summary>
+        /// <param name="winCount"></param>
+        /// <param name="balance"></param>
+        /// <returns></returns>
         public static decimal HorizontalHandleWinResults(decimal winCount, decimal balance)
         {
             if (winCount == 0)
@@ -298,6 +316,13 @@ namespace RefactorSlotMachine
 
             return balance;
         }
+
+        /// <summary>
+        /// Handles Horizontal Win Result
+        /// </summary>
+        /// <param name="winCount"></param>
+        /// <param name="balance"></param>
+        /// <returns></returns>
         public static decimal VerticalHandleWinResults(decimal winCount, decimal balance)
         {
             if (winCount == 0)
@@ -315,6 +340,11 @@ namespace RefactorSlotMachine
             return balance;
         }
 
+
+        /// <summary>
+        /// Check if Game Over Due to Insufficient Fund
+        /// </summary>
+        /// <param name="balance"></param>
         public static void CheckGameOver(decimal balance)
         {
             if (balance < Constants.BET_AMOUNT)
