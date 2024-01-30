@@ -34,19 +34,18 @@ namespace RefactorSlotMachine
                 //Bet Calculation
                 if (playAgain)
                 {
-                    updatedBalance = betAmount - Constants.BET_AMOUNT;
-                    //updated balance
-                    UIMethods.BalanceUpdatePrint(updatedBalance);
+                  balance = betAmount - Constants.BET_AMOUNT;
+
                 }
                 else
                 {
-                    updatedBalance = betAmount + Constants.INITIAL_BALANCE;
-                    //updated balance
-                    UIMethods.BalanceUpdatePrint(updatedBalance);
+                    balance = betAmount + Constants.INITIAL_BALANCE;
                 }
 
+                //updated balance
+                UIMethods.BalanceUpdatePrint(balance);
                 //returning updatedBalance to balance
-                balance = updatedBalance;
+              
                 //play again prompt
                 UIMethods.PlayAgainPrompt();
 
