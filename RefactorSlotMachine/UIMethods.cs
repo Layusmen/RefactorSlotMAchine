@@ -62,7 +62,7 @@ namespace RefactorSlotMachine
 				{
 					//int randomIndex = Logics.randomPickGenerator.Next(Logics.slotSymbols.Count);
 					//Logics.slots_Output[row, col] = Logics.slotSymbols[randomIndex];
-					Logics.slots_Output = new char[,] { { '1', '0', '1' }, { '1', 'o', '1' }, { '1', '0', '1' } };
+					Logics.slots_Output = new char[,] { { '1', '1', '1' }, { '1', '1', '1' }, { '1', '1', '1' } };
 					Console.Write(Logics.slots_Output[row, col] + "\t");
 				}
 				Console.WriteLine();

@@ -19,7 +19,7 @@ namespace RefactorSlotMachine
                 UIMethods.WelcomeMessage();
 
                 //Select option
-                char myBet = UIMethods.ChooseBet();
+                char betSwitch = UIMethods.ChooseBet();
 
                 //Betting Results Removed
                 UIMethods.BettingResult();
@@ -29,18 +29,18 @@ namespace RefactorSlotMachine
 
 
                 //Check for a win on all the lines
-                Logics.MyBetProcess(myBet, balance);
+               decimal betAmount =  Logics.MyBetProcess(betSwitch, balance);
 
                 //Bet Calculation
                 if (playAgain)
                 {
-                    updatedBalance = balance - Constants.BET_AMOUNT;
+                    updatedBalance = betAmount - Constants.BET_AMOUNT;
                     //updated balance
                     UIMethods.ValueUpdate(updatedBalance);
                 }
                 else
                 {
-                    updatedBalance = balance + Constants.INITIAL_BALANCE;
+                    updatedBalance = betAmount + Constants.INITIAL_BALANCE;
                     //updated balance
                     UIMethods.ValueUpdate(updatedBalance);
                 }
