@@ -36,19 +36,19 @@ namespace RefactorSlotMachine
                 {
                     updatedBalance = betAmount - Constants.BET_AMOUNT;
                     //updated balance
-                    UIMethods.ValueUpdate(updatedBalance);
+                    UIMethods.BalanceUpdatePrint(updatedBalance);
                 }
                 else
                 {
                     updatedBalance = betAmount + Constants.INITIAL_BALANCE;
                     //updated balance
-                    UIMethods.ValueUpdate(updatedBalance);
+                    UIMethods.BalanceUpdatePrint(updatedBalance);
                 }
 
                 //returning updatedBalance to balance
                 balance = updatedBalance;
 
-                UIMethods.PlayAgainKey();
+                UIMethods.PlayAgainPrompt();
 
                 ConsoleKeyInfo key = Console.ReadKey();
 

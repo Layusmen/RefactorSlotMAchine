@@ -32,7 +32,7 @@ namespace RefactorSlotMachine
 			
 			decimal balance = 0;
 
-			UIMethods.HorizontalPlay();
+			UIMethods.HorizontalPlayPrint();
 			// check for a win on a specific horizontal line
 			// set winCount to false 
 			decimal winCount = 0;
@@ -74,14 +74,14 @@ namespace RefactorSlotMachine
 		{
 			if (winCount == 0)
 			{
-				UIMethods.NoWinDetected();
+				UIMethods.NoWinPrint();
 				//balance -= Constants.BET_AMOUNT;
 			}
 			else
 			{
 				(decimal winAmount, string winType) = Logics.CalculateWinDetails(winCount);
 				balance += winAmount;
-				UIMethods.PrintWin(winType, winCount);
+				UIMethods.WinDetectionPrint(winType, winCount);
 			}
 
 			return balance;
@@ -118,7 +118,7 @@ namespace RefactorSlotMachine
 		public static decimal VerticalWin()
 		{
 			decimal balance = 0;
-			UIMethods.VerticalPlay();
+			UIMethods.VerticalPlayPrint();
 			// check for a win on a specific horizontal line
 			// set winCount to false 
 			int winCount = 0;
@@ -159,7 +159,7 @@ namespace RefactorSlotMachine
 
 		{
 			decimal balance = 0;
-			UIMethods.DiagonalPlay();
+			UIMethods.DiagonalPlayPrint();
 
 			//Check the main diagonal (top-left to bottom-right)
 			bool isMainDiagonalWin = true;
@@ -186,30 +186,30 @@ namespace RefactorSlotMachine
 			{
 
 				// Handle the case when there's a win on both diagonals
-				UIMethods.WinDetected();
+				UIMethods.WinDetectionPrint();
 				balance += Constants.CENTER_WIN; // Assuming $20 for a win on the first row
 			}
 			else if (isMainDiagonalWin)
 			{
-				UIMethods.WinDetected();
+				UIMethods.WinDetectionPrint();
 				balance += Constants.FIRST_WIN; // Assuming $20 for a win on the first row
 
 			}
 
 			else if (isSecondaryDiagonalWin)
 			{
-				UIMethods.WinDetected();
+				UIMethods.WinDetectionPrint();
 				balance += Constants.FIRST_WIN; // Assuming $20 for a win on the first row
 			}
 			else if (!isSecondaryDiagonalWin && !isMainDiagonalWin)
 			{
-				UIMethods.NoWinDetected();
+				UIMethods.NoWinPrint();
 				balance -= Constants.BET_AMOUNT;
 			}
 
 			else
 			{
-				UIMethods.NoWinDetected();
+				UIMethods.NoWinPrint();
 				balance -= Constants.BET_AMOUNT; // Subtract the bet amount from the balance if no win is detected on any of the diagonal lines.
 			}
 			return balance;
@@ -222,7 +222,7 @@ namespace RefactorSlotMachine
 		public static decimal VerticalCenterWin()
 		{
 			decimal balance = 0;
-			UIMethods.VerticalCenterPlay();
+			UIMethods.VerticalCenterPlayPrint();
 
 			// Check for a win on a specific vertical line
 			bool verticalCenterWin = true;
@@ -238,14 +238,14 @@ namespace RefactorSlotMachine
 
 			if (verticalCenterWin)
 			{
-				UIMethods.WinDetected();
+				UIMethods.WinDetectionPrint();
 
 				// Add win amount to the balance
 				balance += Constants.CENTER_WIN;
 			}
 			if (!verticalCenterWin)
 			{
-				UIMethods.NoWinDetected();
+				UIMethods.NoWinPrint();
 
 			}
 			
@@ -259,7 +259,7 @@ namespace RefactorSlotMachine
 		public static decimal HorizontalCenterWin()
 		{
 			decimal balance = 0;
-			UIMethods.HorizontalCenterPlay();
+			UIMethods.HorizontalCenterPlayPrint();
 
 			bool middleHorizontalWin = true;
 
@@ -276,13 +276,13 @@ namespace RefactorSlotMachine
 			}
 			if (middleHorizontalWin)
 			{
-				UIMethods.MiddleHorizontalPlay();
+				UIMethods.MiddleHorizontalPlayPrint();
 
 				balance += Constants.FIRST_WIN; // Assuming $20 for a win on the first row
 			}
 			else
 			{
-				UIMethods.NoWinDetected();
+				UIMethods.NoWinPrint();
 				balance -= Constants.BET_AMOUNT;
 			}
 			return balance;
@@ -315,7 +315,7 @@ namespace RefactorSlotMachine
 					balance += Logics.HorizontalCenterWin();
 					break;
 				default:
-					UIMethods.InvalidValue();
+					UIMethods.InvalidValuePrint();
 					break;
 			}
 
@@ -333,14 +333,14 @@ namespace RefactorSlotMachine
 		{
 			if (winCount == 0)
 			{
-				UIMethods.NoWinDetected ();
+				UIMethods.NoWinPrint ();
 				balance -= Constants.BET_AMOUNT;
 			}
 			else
 			{
 				(decimal winAmount, string winType) = Logics.CalculateWinDetails(winCount);  // Call the new function
 				balance += winAmount;
-				UIMethods.PrintWin(winType, winCount);
+				UIMethods.WinDetectionPrint(winType, winCount);
 			}
 
 			return balance;
@@ -355,7 +355,7 @@ namespace RefactorSlotMachine
 		{
 			if (balance < Constants.BET_AMOUNT)
 			{
-				UIMethods.FundInsufficient();
+				UIMethods.FundInsufficientPrint();
 				Environment.Exit(0);
 			}
 

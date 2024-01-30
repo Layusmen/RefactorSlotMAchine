@@ -78,9 +78,9 @@ namespace RefactorSlotMachine
 
 
 		/// <summary>
-		/// PlayAgainKey
+		/// PlayAgainPrompt
 		/// </summary>
-		public static void PlayAgainKey()
+		public static void PlayAgainPrompt()
 		{
 			Console.Write("\nDo you want to play again? (press 'y' for yes, any other key for no): ");
 		}
@@ -89,7 +89,7 @@ namespace RefactorSlotMachine
 		/// <summary>
 		/// Horizontal Play Message
 		/// </summary>
-		public static void HorizontalPlay()
+		public static void HorizontalPlayPrint()
 		{
 			Console.WriteLine("\nYou chose to play all three horizontal lines with $2: Earn $20 for top line wins, $5 for middle or base line wins.");
 		}
@@ -97,7 +97,7 @@ namespace RefactorSlotMachine
 		/// <summary>
 		/// Vertical Play Message
 		/// </summary>
-		public static void VerticalPlay()
+		public static void VerticalPlayPrint()
 		{
 			Console.WriteLine("\nYou chose to play all three vertical lines with $2: Earn $20 for top line wins, $5 for middle or base line wins.");
 		}
@@ -105,7 +105,7 @@ namespace RefactorSlotMachine
 		/// <summary>
 		/// Diagonal Play Message
 		/// </summary>
-		public static void DiagonalPlay()
+		public static void DiagonalPlayPrint()
 		{
 
 			Console.WriteLine("Play diagonals with $2: Earn $20 for any winning combination, $30 for both.");
@@ -114,7 +114,7 @@ namespace RefactorSlotMachine
 		/// <summary>
 		/// Vertical Center Play Message
 		/// </summary>
-		public static void VerticalCenterPlay()
+		public static void VerticalCenterPlayPrint()
 		{
 			Console.WriteLine("\nYou chose to play vertical center line with $2: Earn $30.");
 		}
@@ -122,7 +122,7 @@ namespace RefactorSlotMachine
 		/// <summary>
 		/// Horizontal Center Play
 		/// </summary>
-		public static void HorizontalCenterPlay()
+		public static void HorizontalCenterPlayPrint()
 		{
 
 			Console.WriteLine("\nPlay horizontal center line alone with $2: Earn $30.");
@@ -131,7 +131,7 @@ namespace RefactorSlotMachine
 		/// <summary>
 		/// Middle Horizontal Play Message
 		/// </summary>
-		public static void MiddleHorizontalPlay()
+		public static void MiddleHorizontalPlayPrint()
 		{
 			Console.WriteLine($"\nCongratulations! You win on the horizontal middle line!");
 		}
@@ -139,7 +139,7 @@ namespace RefactorSlotMachine
         /// <summary>
         /// No Win Detected Message
         /// </summary>
-        public static void NoWinDetected()
+        public static void NoWinPrint()
 		{
 			Console.WriteLine("\nNo win Detected");
 		}
@@ -147,7 +147,7 @@ namespace RefactorSlotMachine
 		/// <summary>
 		/// Win Detected Message
 		/// </summary>
-		public static void WinDetected()
+		public static void WinDetectionPrint()
 		{
 			Console.WriteLine($"\nCongratulations! You won!");
 		}
@@ -155,7 +155,7 @@ namespace RefactorSlotMachine
         /// <summary>
         /// Invalid input Message
         /// </summary>
-        public static void InvalidValue()
+        public static void InvalidValuePrint()
 		{
 			Console.WriteLine("\nInvalid value inserted, Try Again!");
 		}
@@ -164,7 +164,7 @@ namespace RefactorSlotMachine
 		/// Current Balance Message
 		/// </summary>
 		/// <param name="updatedBalance"></param>
-		public static void ValueUpdate(decimal updatedBalance)
+		public static void BalanceUpdatePrint(decimal updatedBalance)
 		{
 			Console.WriteLine($"\nYour current balance: ${updatedBalance}");
 		}
@@ -172,7 +172,7 @@ namespace RefactorSlotMachine
 		/// <summary>
 		/// Fund Insufficient Message
 		/// </summary>
-		public static void FundInsufficient()
+		public static void FundInsufficientPrint()
 		{
 			Console.WriteLine("\nInsufficient funds to play. Game over!");
 		}
@@ -182,7 +182,7 @@ namespace RefactorSlotMachine
 		/// </summary>
 		/// <param name="winType"></param>
 		/// <param name="winCount"></param>
-	   public static void PrintWin(string winType, decimal winCount)
+	   public static void WinDetectionPrint(string winType, decimal winCount)
 		{
 			Console.WriteLine($"\n{winType} win detected on line: {winCount}.");
 		}
