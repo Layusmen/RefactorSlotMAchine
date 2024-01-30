@@ -29,7 +29,7 @@ namespace RefactorSlotMachine
 
 
                 //Check for a win on all the lines
-               decimal betAmount =  Logics.BetProcess(betSwitch, balance);
+                decimal betAmount = Logics.BetProcess(betSwitch, balance);
 
                 //Bet Calculation
                 if (playAgain)
@@ -47,13 +47,8 @@ namespace RefactorSlotMachine
 
                 //returning updatedBalance to balance
                 balance = updatedBalance;
-
+                //play again prompt
                 UIMethods.PlayAgainPrompt();
-
-                ConsoleKeyInfo key = Console.ReadKey();
-
-                // Check if the pressed key is 'y' or 'Y' for yes
-                playAgain = key.KeyChar == Constants.SMALLYES || key.KeyChar == Constants.CAPITALYES;
 
                 // Clear the console for the next round
                 Console.Clear();
