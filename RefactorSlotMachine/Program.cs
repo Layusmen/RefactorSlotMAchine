@@ -29,7 +29,7 @@ namespace RefactorSlotMachine
 
 
                 //Check for a win on all the lines
-               decimal betAmount =  Logics.MyBetProcess(betSwitch, balance);
+               decimal betAmount =  Logics.BetProcess(betSwitch, balance);
 
                 //Bet Calculation
                 if (playAgain)
