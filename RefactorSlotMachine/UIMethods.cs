@@ -59,8 +59,6 @@ namespace RefactorSlotMachine
         }
 
 
-
-
         /// <summary>
         /// Play Again Prompt Function
         /// </summary>

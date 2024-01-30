@@ -60,7 +60,7 @@ namespace RefactorSlotMachine
                 }
 
             }
-            return Logics.HorizontalHandleWinResults(winCount, balance);
+            return Logics.HandleWinResults(winCount, balance);
         }
 
 
@@ -70,7 +70,7 @@ namespace RefactorSlotMachine
         /// <param name="winCount"></param>
         /// <param name="balance"></param>
         /// <returns></returns>
-        public static decimal HorizontalHandleWinResults(decimal winCount, decimal balance)
+        public static decimal HandleWinResults(decimal winCount, decimal balance)
         {
             if (winCount == 0)
             {
@@ -147,7 +147,7 @@ namespace RefactorSlotMachine
                 }
 
             }
-            decimal result = Logics.VerticalHandleWinResults(winCount, balance);
+            decimal result = Logics.HandleWinResults(winCount, balance);
             return result;
         }
 
@@ -329,24 +329,7 @@ namespace RefactorSlotMachine
         /// <param name="winCount"></param>
         /// <param name="balance"></param>
         /// <returns></returns>
-        public static decimal VerticalHandleWinResults(decimal winCount, decimal balance)
-        {
-            if (winCount == 0)
-            {
-                UIMethods.NoWinPrint();
-                balance -= Constants.BET_AMOUNT;
-            }
-            else
-            {
-                (decimal winAmount, string winType) = Logics.CalculateWinDetails(winCount);  // Call the new function
-                balance += winAmount;
-                UIMethods.WinDetectionPrint(winType, winCount);
-            }
-
-            return balance;
-        }
-
-
+   
         /// <summary>
         /// Check if Game Over Due to Insufficient Fund
         /// </summary>
