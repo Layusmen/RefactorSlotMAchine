@@ -13,7 +13,7 @@ namespace RefactorSlotMachine
             bool playAgain = true;
             while (playAgain)
             {
-                decimal updatedBalance;
+               // decimal updatedBalance;
 
                 //Welcome message
                 UIMethods.WelcomeMessage();
@@ -27,7 +27,7 @@ namespace RefactorSlotMachine
                 // Check if it is gameover
                 Logics.CheckGameOver(balance);
 
-
+                Logics.RandomGeneratorPrint();
                 //Check for a win on all the lines
                 decimal betAmount = Logics.BetProcess(betSwitch, balance);
 

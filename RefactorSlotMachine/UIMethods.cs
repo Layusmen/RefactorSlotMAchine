@@ -15,7 +15,8 @@ namespace RefactorSlotMachine
             //First messages
             Console.WriteLine("Welcome to the Amazing Slot Machine!");
             Console.WriteLine("Spin the reels and win big!");
-            //Display betting options
+            
+            
             //Display betting options
             Console.WriteLine("To Spin, Press......");
             Console.WriteLine("- (A) Play all three horizontal lines with $2: Earn $20 for one line wins, $40 for two lines win, and $60 for three lines win");
@@ -23,6 +24,8 @@ namespace RefactorSlotMachine
             Console.WriteLine("- (V) Play horizontal center line alone with $2: Earn $30.");
             Console.WriteLine("- (C) Play vertical center line with $2: Earn $30.");
             Console.WriteLine("- (D) Play diagonals with $2: Earn $20 for any and $60 for the two winning combination.");
+            //Display betting options
+
         }
 
         /// <summary>
@@ -52,10 +55,10 @@ namespace RefactorSlotMachine
         public static void BettingResult()
         {
             //Display the result
-            Console.WriteLine("\nSlot Machine Results: \n");
+            Console.WriteLine("\n\nSlot Machine Results:\n");
 
             //Ramdom Pick Generator
-            Logics.RandomGeneratorPrint();
+            //Logics.RandomGeneratorPrint();
         }
 
 
@@ -140,7 +143,7 @@ namespace RefactorSlotMachine
         /// </summary>
         public static void InvalidValuePrint()
         {
-            Console.WriteLine("\nInvalid value inserted, Try Again!");
+            Console.WriteLine("\n\nInvalid value inserted, Try Again!");
 
         }
 

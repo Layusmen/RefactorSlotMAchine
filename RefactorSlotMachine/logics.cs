@@ -315,7 +315,6 @@ namespace RefactorSlotMachine
                     balance += Logics.HorizontalCenterWin();
                     break;
                 default:
-                    UIMethods.InvalidValuePrint();
                     return UIMethods.ChooseBet();
             }
 
