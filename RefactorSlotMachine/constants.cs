@@ -28,8 +28,8 @@ namespace RefactorSlotMachine
         /// <summary>
         /// Yes to Play Again
         /// </summary>
-        public const char CAPITALYES = 'Y';
-        public const char SMALLYES = 'y';
+        public const char CAPITAL_YES = 'Y';
+        public const char SMALL_YES = 'y';
 
         /// <summary>
         /// Win type Statement
