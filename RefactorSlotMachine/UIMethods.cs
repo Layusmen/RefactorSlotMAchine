@@ -66,7 +66,7 @@ namespace RefactorSlotMachine
         public static bool PlayAgainPrompt()
         {
             Console.Write("\nPlay again (y/n)? ");
-            return Console.ReadKey().KeyChar == 'y' || Console.ReadKey().KeyChar == 'Y';
+            return Console.ReadKey().KeyChar == Constants.SMALL_YES || Console.ReadKey().KeyChar == Constants.CAPITAL_YES;
         }
 
 
