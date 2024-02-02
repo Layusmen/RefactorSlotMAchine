@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Data.SqlTypes;
 using RefactorSlotMachine;
 
 namespace RefactorSlotMachine
@@ -315,12 +314,13 @@ namespace RefactorSlotMachine
                     balance += Logics.HorizontalCenterWin();
                     break;
                 default:
-                    return UIMethods.ChooseBet();
+                    UIMethods.ChooseBet();
+                  break;
+                  
             }
 
             return balance;
         }
-
 
         /// <summary>
         /// Handles Horizontal Win Result
@@ -328,7 +328,7 @@ namespace RefactorSlotMachine
         /// <param name="winCount"></param>
         /// <param name="balance"></param>
         /// <returns></returns>
-   
+
         /// <summary>
         /// Check if Game Over Due to Insufficient Fund
         /// </summary>
