@@ -1,6 +1,4 @@
 ﻿using System;
-
-
 namespace RefactorSlotMachine
 {
     internal class UIMethods
