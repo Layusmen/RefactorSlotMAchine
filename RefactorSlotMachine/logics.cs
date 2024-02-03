@@ -154,10 +154,12 @@ namespace RefactorSlotMachine
         /// Diagonal Win CHeck
         /// </summary>
         /// <returns></returns>
+        /// 
+
         public static decimal DiagonalWin()
 
         {
-            decimal balance = 0;
+            //decimal balance = 0;
             UIMethods.DiagonalPlayPrint();
 
             //Check the main diagonal (top-left to bottom-right)
@@ -181,6 +183,19 @@ namespace RefactorSlotMachine
                     break;
                 }
             }
+
+            return CheckDiagonalWin(isSecondaryDiagonalWin,isMainDiagonalWin);
+        }
+
+        /// <summary>
+        /// Check Diagonal Win Logic
+        /// </summary>
+        /// <param name="isSecondaryDiagonalWin"></param>
+        /// <param name="isMainDiagonalWin"></param>
+        /// <returns></returns>
+        public static decimal CheckDiagonalWin(bool isSecondaryDiagonalWin, bool isMainDiagonalWin)
+        { 
+            decimal balance = 0;
             if (isSecondaryDiagonalWin && isMainDiagonalWin)
             {
 
