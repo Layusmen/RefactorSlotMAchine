@@ -1,32 +1,41 @@
-﻿using System;
-using RefactorSlotMachine;
-
-namespace RefactorSlotMachine
-{
+﻿using System;using System.Runtime.InteropServices;using RefactorSlotMachine;namespace RefactorSlotMachine{
     internal class Logics
     {
 
-        /// <summary>
-        /// slots_Output
-        /// </summary>
-        public static char[,] slots_Output = new char[Constants.ROW_COUNT, Constants.COLUMN_COUNT];
-
-        /// <summary>
-        /// Random randomPickGenerator
-        /// </summary>
-        public readonly static Random randomPickGenerator = new Random();
-
-        /// <summary>
-        /// slotSymbols
-        /// </summary>
-        public static List<char> slotSymbols = new List<char> { 'A', '1', '5', '7', '$', 'M', '8', '9', '!', '#', 'Q', '&', 'C', 'S', 'Y', 'V', 'W', 'R', 'L', 'F' };
 
 
-        /// <summary>
-        /// Horizontal Win Check
-        /// </summary>
-        /// <returns></returns>
-        public static decimal HorizontalWin()
+
+
+
+
+        /// <summary>        /// slots_Output        /// </summary>                                                                               public static char[,] slots_Output = new char[Constants.ROW_COUNT, Constants.COLUMN_COUNT];
+
+
+
+
+
+
+
+        /// <summary>        /// Random randomPickGenerator        /// </summary>                                                                                             public readonly static Random randomPickGenerator = new Random();
+
+
+
+
+
+
+
+        /// <summary>        /// slotSymbols        /// </summary>                                                                             public static List<char> slotSymbols = new List<char> { 'A', '1', '5', '7', '$', 'M', '8', '9', '!', '#', 'Q', '&', 'C', 'S', 'Y', 'V', 'W', 'R', 'L', 'F' };
+
+
+
+
+
+
+
+
+
+
+        /// <summary>        /// Horizontal Win Check        /// </summary>        /// <returns></returns>                                                                                                                      public static decimal HorizontalWin()
         {
 
             decimal balance = 0;
@@ -63,13 +72,18 @@ namespace RefactorSlotMachine
         }
 
 
-        /// <summary>
-        /// Handles Horizontal Wins Results
-        /// </summary>
-        /// <param name="winCount"></param>
-        /// <param name="balance"></param>
-        /// <returns></returns>
-        public static decimal HandleWinResults(decimal winCount, decimal balance)
+
+
+
+
+
+
+
+
+
+
+
+        /// <summary>        /// Handles Horizontal Wins Results        /// </summary>        /// <param name="winCount"></param>        /// <param name="balance"></param>        /// <returns></returns>                                                                                                                                                                                                                        public static decimal HandleWinResults(decimal winCount, decimal balance)
         {
             if (winCount == 0)
             {
@@ -87,12 +101,17 @@ namespace RefactorSlotMachine
         }
 
 
-        /// <summary>
-        /// Calculate Win Details
-        /// </summary>
-        /// <param name="winCount"></param>
-        /// <returns></returns>
-        public static (decimal winAmount, string winType) CalculateWinDetails(decimal winCount)
+
+
+
+
+
+
+
+
+
+
+        /// <summary>        /// Calculate Win Details        /// </summary>        /// <param name="winCount"></param>        /// <returns></returns>                                                                                                                                                                   public static (decimal winAmount, string winType) CalculateWinDetails(decimal winCount)
         {
             if (winCount == 1)
             {
@@ -110,11 +129,13 @@ namespace RefactorSlotMachine
 
 
 
-        /// <summary>
-        /// Vertical Win Check
-        /// </summary>
-        /// <returns></returns>
-        public static decimal VerticalWin()
+
+
+
+
+
+
+        /// <summary>        /// Vertical Win Check        /// </summary>        /// <returns></returns>                                                                                                                    public static decimal VerticalWin()
         {
             decimal balance = 0;
             UIMethods.VerticalPlayPrint();
@@ -150,13 +171,16 @@ namespace RefactorSlotMachine
             return result;
         }
 
-        /// <summary>
-        /// Diagonal Win CHeck
-        /// </summary>
-        /// <returns></returns>
-        /// 
 
-        public static decimal DiagonalWin()
+
+
+
+
+
+
+
+
+        /// <summary>        /// Diagonal Win CHeck        /// </summary>        /// <returns></returns>                                                                                                                    public static decimal DiagonalWin()
 
         {
             //decimal balance = 0;
@@ -184,17 +208,24 @@ namespace RefactorSlotMachine
                 }
             }
 
-            return CheckDiagonalWin(isSecondaryDiagonalWin,isMainDiagonalWin);
+            return CheckDiagonalWin(isSecondaryDiagonalWin, isMainDiagonalWin);
         }
 
-        /// <summary>
-        /// Check Diagonal Win Logic
-        /// </summary>
-        /// <param name="isSecondaryDiagonalWin"></param>
-        /// <param name="isMainDiagonalWin"></param>
-        /// <returns></returns>
-        public static decimal CheckDiagonalWin(bool isSecondaryDiagonalWin, bool isMainDiagonalWin)
-        { 
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /// <summary>        /// Check Diagonal Win Logic        /// </summary>        /// <param name="isSecondaryDiagonalWin"></param>        /// <param name="isMainDiagonalWin"></param>        /// <returns></returns>                                                                                                                                                                                                                                         public static decimal CheckDiagonalWin(bool isSecondaryDiagonalWin, bool isMainDiagonalWin)
+        {
             decimal balance = 0;
             if (isSecondaryDiagonalWin && isMainDiagonalWin)
             {
@@ -229,11 +260,17 @@ namespace RefactorSlotMachine
             return balance;
         }
 
-        /// <summary>
-        /// Vertical Center Win Check
-        /// </summary>
-        /// <returns></returns>
-        public static decimal VerticalCenterWin()
+
+
+
+
+
+
+
+
+
+
+        /// <summary>        /// Vertical Center Win Check        /// </summary>        /// <returns></returns>                                                                                                                           public static decimal VerticalCenterWin()
         {
             decimal balance = 0;
             UIMethods.VerticalCenterPlayPrint();
@@ -266,11 +303,15 @@ namespace RefactorSlotMachine
             return balance;
         }
 
-        /// <summary>
-        /// Horizontal Center Win Check
-        /// </summary>
-        /// <returns></returns>
-        public static decimal HorizontalCenterWin()
+
+
+
+
+
+
+
+
+        /// <summary>        /// Horizontal Center Win Check        /// </summary>        /// <returns></returns>                                                                                                                             public static decimal HorizontalCenterWin()
         {
             decimal balance = 0;
             UIMethods.HorizontalCenterPlayPrint();
@@ -302,53 +343,75 @@ namespace RefactorSlotMachine
             return balance;
         }
 
-        /// <summary>
-        /// Check Bet Processes
-        /// </summary>
-        /// <param name="betSwitch"></param>
-        /// <param name="balance"></param>
 
-        public static decimal BetProcess(int betSwitch, decimal balance)
+
+
+
+
+
+
+
+
+
+        /// <summary>        /// Check Bet Processes        /// </summary>        /// <param name="betSwitch"></param>        /// <param name="balance"></param>
+        public static decimal BetProcess(decimal balance)
         {
-            switch (betSwitch)
+            char betSwitch = UIMethods.ChooseBet();
+
+            while (true)
+
             {
-                case Constants.HORIZONTAL_LINE:
-                    balance += Logics.HorizontalWin();
-                    break;
+                switch (betSwitch)
+                {
+                    case Constants.HORIZONTAL_LINE:
+                        balance += Logics.HorizontalWin();
+                        break;
+                    case Constants.VERTICAL_LINE:
+                        balance += Logics.VerticalWin();
+                        break;
+                    case Constants.DIAGONAL_LINE:
+                        balance += Logics.DiagonalWin();
+                        break;
+                    case Constants.VER_CENTER_LINE:
+                        balance += Logics.VerticalCenterWin();
+                        break;
+                    case Constants.HOR_CENTER_LINE:
+                        balance += Logics.HorizontalCenterWin();
+                        break;
+                    default:
+                        UIMethods.InvalidValuePrint();
+                        UIMethods.ChooseBet();
 
-                case Constants.VERTICAL_LINE:
-                    balance += Logics.VerticalWin();
-                    break;
-                case Constants.DIAGONAL_LINE:
-                    balance += Logics.DiagonalWin();
-                    break;
-                case Constants.VER_CENTER_LINE:
-                    balance += Logics.VerticalCenterWin();
-                    break;
-                case Constants.HOR_CENTER_LINE:
-                    balance += Logics.HorizontalCenterWin();
-                    break;
-                default:
-                    UIMethods.ChooseBet();
-                  break;
-                  
+                        break;
+                }
+                return balance;
             }
-
-            return balance;
         }
 
-        /// <summary>
-        /// Handles Horizontal Win Result
-        /// </summary>
-        /// <param name="winCount"></param>
-        /// <param name="balance"></param>
-        /// <returns></returns>
 
-        /// <summary>
-        /// Check if Game Over Due to Insufficient Fund
-        /// </summary>
-        /// <param name="balance"></param>
-        public static void CheckGameOver(decimal balance)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /// <summary>        /// Handles Horizontal Win Result        /// </summary>        /// <param name="winCount"></param>        /// <param name="balance"></param>        /// <returns></returns>
+        /// <summary>        /// Check if Game Over Due to Insufficient Fund        /// </summary>        /// <param name="balance"></param>                                                                                                                                                        public static void CheckGameOver(decimal balance)
         {
             if (balance < Constants.BET_AMOUNT)
             {
@@ -359,26 +422,17 @@ namespace RefactorSlotMachine
         }
 
 
-        public static void BetSelectionCheck(char bettingOption)
-
+        public static void RandomGeneratorPrint1()
         {
-            if (!Constants.bettingSelect.Contains(bettingOption))
-            {
-                UIMethods.InvalidValuePrint();
-            }
-        }
 
-
-        public static void RandomGeneratorPrint()
-        {
             for (int row = 0; row < Constants.ROW_COUNT; row++)
             {
                 for (int col = 0; col < Constants.COLUMN_COUNT; col++)
                 {
                     //int randomIndex = Logics.randomPickGenerator.Next(Logics.slotSymbols.Count);
                     //Logics.slots_Output[row, col] = Logics.slotSymbols[randomIndex];
-                    Logics.slots_Output = new char[,] { { '1', '1', '1' }, { '1', '1', '1' }, { '1', '1', '1' } };
-                    Console.Write(Logics.slots_Output[row, col] + "\t");
+                    Logics.slots_Output = new char[,] { { '1', '0', '1' }, { '1', '1', '1' }, { '1', '1', '1' } };
+                    //Console.Write(Logics.slots_Output[row, col] + "\t");
                 }
                 Console.WriteLine();
 
@@ -386,7 +440,22 @@ namespace RefactorSlotMachine
 
         }
 
+        public static string RandomGeneratorPrint()
+        {
+            string output = "";
+            for (int row = 0; row < Constants.ROW_COUNT; row++)
+            {
+                for (int col = 0; col < Constants.COLUMN_COUNT; col++)
+                {
+                    Logics.slots_Output = new char[,] { { '1', '1', '1' }, { '1', '1', '1' }, { '1', '1', '1' } };
+
+                    output += Logics.slots_Output[row, col] + "\t";
+                }
+                output += "\n";
+            }
+            return output;
+
+        }
 
 
-    }
-}
+    }}

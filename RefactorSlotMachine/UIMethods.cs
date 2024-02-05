@@ -13,8 +13,8 @@ namespace RefactorSlotMachine
             //First messages
             Console.WriteLine("Welcome to the Amazing Slot Machine!");
             Console.WriteLine("Spin the reels and win big!");
-            
-            
+
+
             //Display betting options
             Console.WriteLine("To Spin, Press......");
             Console.WriteLine("- (A) Play all three horizontal lines with $2: Earn $20 for one line wins, $40 for two lines win, and $60 for three lines win");
@@ -37,12 +37,6 @@ namespace RefactorSlotMachine
             Console.Write("\nPlease choose a betting option (A, H, V, C, D): ");
             char bettingOption = char.ToUpper(Console.ReadKey().KeyChar);
             Console.WriteLine();
-
-            //Check if the betting option is valid		   
-            if (!Constants.bettingSelect.Contains(bettingOption))
-            {
-                UIMethods.InvalidValuePrint();
-            }
             return bettingOption;
         }
 
@@ -53,10 +47,7 @@ namespace RefactorSlotMachine
         public static void BettingResult()
         {
             //Display the result
-            Console.WriteLine("\n\nSlot Machine Results:\n");
-
-            //Ramdom Pick Generator
-            //Logics.RandomGeneratorPrint();
+            Console.WriteLine("\nSlot Machine Results:\n");
         }
 
 
