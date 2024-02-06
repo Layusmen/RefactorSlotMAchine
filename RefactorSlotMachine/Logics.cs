@@ -331,32 +331,33 @@ namespace RefactorSlotMachine
             return balance;
         }
 
-		/// <summary>
-		/// BEtting Validity Check
-		/// </summary>
-		/// <param name="bettingOption"></param>
-		/// <returns></returns>
+        /// <summary>
+        /// BEtting Validity Check
+        /// </summary>
+        /// <param name="bettingOption"></param>
+        /// <returns></returns>
 
 
-		/// <summary>
-		/// Check Game Over
-		/// </summary>
-		/// <param name="balance"></param>
-		public static void CheckGameOver(decimal balance)
-		{
-			if (balance < Constants.BET_AMOUNT)
-			{
-				UIMethods.FundInsufficientPrint();
-				Environment.Exit(0);
-			}
-			
-		}
+        /// <summary>
+        /// Check Game Over
+        /// </summary>
+        /// <param name="balance"></param>
+        
+        public static bool CheckGameOver(decimal balance)
+        {
+            if (balance < Constants.BET_AMOUNT)
+            {
+                UIMethods.FundInsufficientPrint();
+                return true; // Game over
+            }
 
+            return false; // Game can continue
+        }
 
-		/// <summary>
-		/// Random Generator Print
-		/// </summary>
-		public static void RandomGeneratorPrint1()
+        /// <summary>
+        /// Random Generator Print
+        /// </summary>
+        public static void RandomGeneratorPrint1()
 		{
 
 			for (int row = 0; row < Constants.ROW_COUNT; row++)
@@ -365,7 +366,7 @@ namespace RefactorSlotMachine
 				{
 					//int randomIndex = randomPickGenerator.Next(slotSymbols.Count);
 					//slots_Output[row, col] = slotSymbols[randomIndex];
-					slots_Output = new char[,] { { '1', '0', '1' }, { '1', '1', '1' }, { '1', '1', '1' } };
+					slots_Output = new char[,] { { '1', '0', 'o' }, { '1', 'a', '1' }, { 'c', 'd', 'e' } };
 					//Console.Write(slots_Output[row, col] + "\t");
 				}
 				Console.WriteLine();
@@ -389,7 +390,7 @@ namespace RefactorSlotMachine
                     //int randomIndex = randomPickGenerator.Next(slotSymbols.Count);
                     //slots_Output[row, col] = slotSymbols[randomIndex];
                     
-					slots_Output = new char[,] { { '1', '1', '1' }, { '1', '1', '1' }, { '1', '1', '1' } };
+					slots_Output = new char[,] { { '1', '0', '1' }, { '3', '3', '1' }, { '4', '1', '9' } };
 
 					output += slots_Output[row, col] + "\t";
 				}

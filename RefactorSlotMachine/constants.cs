@@ -53,7 +53,7 @@ namespace RefactorSlotMachine
         public const decimal FIRST_WIN = 20.00M;
         public const decimal TWO_COMBINE_WIN = 40.00M;
         public const decimal CENTER_WIN = 30.00M;
-        public const decimal THREE_COMBINE_WIN = 60.00M;
+        public const decimal THREE_COMBINE_WIN = 4.00M;
 
         public const decimal SECOND_WIN = 10.00M;
    
