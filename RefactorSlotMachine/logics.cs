@@ -353,33 +353,12 @@ namespace RefactorSlotMachine
             return false; // Game can continue
         }
 
-
-        /// <summary>
-        /// Random Generator Print
-        /// </summary>
-        public static void RandomGeneratorPrint1()
-		{
-
-			for (int row = 0; row < Constants.ROW_COUNT; row++)
-			{
-				for (int col = 0; col < Constants.COLUMN_COUNT; col++)
-				{
-					//int randomIndex = randomPickGenerator.Next(slotSymbols.Count);
-					//slots_Output[row, col] = slotSymbols[randomIndex];
-					slots_Output = new char[,] { { '1', '0', 'o' }, { '1', 'a', '1' }, { 'c', 'd', 'e' } };
-					//Console.Write(slots_Output[row, col] + "\t");
-				}
-				Console.WriteLine();
-
-			}
-
-		}
-
+      
 		/// <summary>
 		/// Random Generator Check
 		/// </summary>
 		/// <returns></returns>
-		public static string RandomGeneratorPrint()
+		public static string SlotOutputBuilder()
 		{
 			string output = "";
 			for (int row = 0; row < Constants.ROW_COUNT; row++)
