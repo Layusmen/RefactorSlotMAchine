@@ -57,7 +57,7 @@ namespace RefactorSlotMachine
 				}
 
 			}
-			return Logics.HandleWinResults(winCount, balance);
+			return HandleWinResults(winCount, balance);
 		}
 
 		/// <summary>
@@ -75,7 +75,7 @@ namespace RefactorSlotMachine
 			}
 			else
 			{
-				(decimal winAmount, string winType) = Logics.CalculateWinDetails(winCount);
+				(decimal winAmount, string winType) = CalculateWinDetails(winCount);
 				balance += winAmount;
 				UIMethods.WinDetectionPrint(winType, winCount);
 			}
@@ -141,7 +141,7 @@ namespace RefactorSlotMachine
 				}
 
 			}
-			decimal result = Logics.HandleWinResults(winCount, balance);
+			decimal result = HandleWinResults(winCount, balance);
 			return result;
 		}
 
@@ -310,19 +310,19 @@ namespace RefactorSlotMachine
 				switch (betSwitch)
 				{
 					case Constants.HORIZONTAL_LINE:
-						balance += Logics.HorizontalWin();
+						balance += HorizontalWin();
                         break;
 					case Constants.VERTICAL_LINE:
-						balance += Logics.VerticalWin();
+						balance += VerticalWin();
 						break;
 					case Constants.DIAGONAL_LINE:
-						balance += Logics.DiagonalWin();
+						balance += DiagonalWin();
 						break;
 					case Constants.VER_CENTER_LINE:
-						balance += Logics.VerticalCenterWin();
+						balance += VerticalCenterWin();
 						break;
 					case Constants.HOR_CENTER_LINE:
-						balance += Logics.HorizontalCenterWin();
+						balance += HorizontalCenterWin();
 						break;
 				default:
 						break;
@@ -363,10 +363,10 @@ namespace RefactorSlotMachine
 			{
 				for (int col = 0; col < Constants.COLUMN_COUNT; col++)
 				{
-					//int randomIndex = Logics.randomPickGenerator.Next(Logics.slotSymbols.Count);
-					//Logics.slots_Output[row, col] = Logics.slotSymbols[randomIndex];
-					Logics.slots_Output = new char[,] { { '1', '0', '1' }, { '1', '1', '1' }, { '1', '1', '1' } };
-					//Console.Write(Logics.slots_Output[row, col] + "\t");
+					//int randomIndex = randomPickGenerator.Next(slotSymbols.Count);
+					//slots_Output[row, col] = slotSymbols[randomIndex];
+					slots_Output = new char[,] { { '1', '0', '1' }, { '1', '1', '1' }, { '1', '1', '1' } };
+					//Console.Write(slots_Output[row, col] + "\t");
 				}
 				Console.WriteLine();
 
@@ -386,12 +386,12 @@ namespace RefactorSlotMachine
 				for (int col = 0; col < Constants.COLUMN_COUNT; col++)
 				{
 
-                    //int randomIndex = Logics.randomPickGenerator.Next(Logics.slotSymbols.Count);
-                    //Logics.slots_Output[row, col] = Logics.slotSymbols[randomIndex];
+                    //int randomIndex = randomPickGenerator.Next(slotSymbols.Count);
+                    //slots_Output[row, col] = slotSymbols[randomIndex];
                     
-					Logics.slots_Output = new char[,] { { '1', '1', '1' }, { '1', '1', '1' }, { '1', '1', '1' } };
+					slots_Output = new char[,] { { '1', '1', '1' }, { '1', '1', '1' }, { '1', '1', '1' } };
 
-					output += Logics.slots_Output[row, col] + "\t";
+					output += slots_Output[row, col] + "\t";
 				}
 				output += "\n";
 			}
