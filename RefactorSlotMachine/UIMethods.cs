@@ -33,11 +33,23 @@ namespace RefactorSlotMachine
         /// <returns></returns>
         public static char ChooseBet()
         {
-            //Betting amount
-            Console.Write("\nPlease choose a betting option (A, H, V, C, D): ");
-            char bettingOption = char.ToUpper(Console.ReadKey().KeyChar);
-            Console.WriteLine();
-            return bettingOption;
+          
+            
+              //Betting amount
+                Console.Write("\nPlease choose a betting option (A, H, V, C, D): ");
+                char bettingOption = char.ToUpper(Console.ReadKey().KeyChar);
+                Console.WriteLine();
+
+                //Check if the betting option is valid		   
+
+
+                if (!Constants.bettingSelect.Contains(bettingOption))
+                {
+                    UIMethods.InvalidValuePrint();
+                }
+
+
+                return bettingOption;
         }
 
         /// <summary>

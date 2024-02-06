@@ -7,7 +7,7 @@ namespace RefactorSlotMachine
         public static void Main(string[] args)
         {
 
-            //decimal balance = Constants.INITIAL_BALANCE;
+            decimal balance = Constants.INITIAL_BALANCE;
 
 
             bool playAgain = true;
@@ -17,15 +17,15 @@ namespace RefactorSlotMachine
 
                 //Welcome message
                 UIMethods.WelcomeMessage();
-                decimal balance = Constants.INITIAL_BALANCE;
+
                 //Select option
-               // char betSwitch = UIMethods.ChooseBet();
+                char betSwitch = UIMethods.ChooseBet();
 
                 // Check if it is gameover
                 Logics.CheckGameOver(balance);        
 
                 //Check for a win on all the lines
-                decimal betAmount = Logics.BetProcess(balance);
+                decimal betAmount = Logics.BetProcess(betSwitch, balance);
 
 
                 //Print 
@@ -34,7 +34,7 @@ namespace RefactorSlotMachine
 
 
                 //Bet Calculation
-                if (playAgain)
+                if (playAgain && )
                 {
                   balance = betAmount - Constants.BET_AMOUNT;
 
@@ -46,6 +46,8 @@ namespace RefactorSlotMachine
 
                 //updated balance
                 UIMethods.BalanceUpdatePrint(balance);
+
+
                 //returning updatedBalance to balance
                 
                 
