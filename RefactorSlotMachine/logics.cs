@@ -21,4 +21,40 @@
 				}
                
             return balance;
-        }					/// <summary>		/// Handles Horizontal Win Result		/// </summary>		/// <param name="winCount"></param>		/// <param name="balance"></param>		/// <returns></returns>		/// <summary>		/// Check if Game Over Due to Insufficient Fund		/// </summary>		/// <param name="balance"></param>		public static void CheckGameOver(decimal balance)		{			if (balance < Constants.BET_AMOUNT)			{				UIMethods.FundInsufficientPrint();				Environment.Exit(0);			}					}		public static void RandomGeneratorPrint1()		{			for (int row = 0; row < Constants.ROW_COUNT; row++)			{				for (int col = 0; col < Constants.COLUMN_COUNT; col++)				{					//int randomIndex = Logics.randomPickGenerator.Next(Logics.slotSymbols.Count);					//Logics.slots_Output[row, col] = Logics.slotSymbols[randomIndex];					Logics.slots_Output = new char[,] { { '1', '0', '1' }, { '1', '1', '1' }, { '1', '1', '1' } };					//Console.Write(Logics.slots_Output[row, col] + "\t");				}				Console.WriteLine();			}		}		public static string RandomGeneratorPrint()		{			string output = "";			for (int row = 0; row < Constants.ROW_COUNT; row++)			{				for (int col = 0; col < Constants.COLUMN_COUNT; col++)				{					Logics.slots_Output = new char[,] { { '1', '1', '1' }, { '1', '1', '1' }, { '1', '1', '1' } };					output += Logics.slots_Output[row, col] + "\t";				}				output += "\n";			}			return output;		}	}}
+        }
+
+
+        public static char BettingValiditityCheck(char bettingOption)
+        {
+            if (Constants.bettingSelect.Contains(bettingOption))
+            {
+                return bettingOption; // Valid option, return it
+            }
+            else
+            {
+				UIMethods.InvalidValuePrint();
+            }
+			return bettingOption;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /// <summary>        /// Handles Horizontal Win Result        /// </summary>        /// <param name="winCount"></param>        /// <param name="balance"></param>        /// <returns></returns>
+        /// <summary>        /// Check if Game Over Due to Insufficient Fund        /// </summary>        /// <param name="balance"></param>                                                                                                                                                        public static void CheckGameOver(decimal balance)		{			if (balance < Constants.BET_AMOUNT)			{				UIMethods.FundInsufficientPrint();				Environment.Exit(0);			}					}		public static void RandomGeneratorPrint1()		{			for (int row = 0; row < Constants.ROW_COUNT; row++)			{				for (int col = 0; col < Constants.COLUMN_COUNT; col++)				{					//int randomIndex = Logics.randomPickGenerator.Next(Logics.slotSymbols.Count);					//Logics.slots_Output[row, col] = Logics.slotSymbols[randomIndex];					Logics.slots_Output = new char[,] { { '1', '0', '1' }, { '1', '1', '1' }, { '1', '1', '1' } };					//Console.Write(Logics.slots_Output[row, col] + "\t");				}				Console.WriteLine();			}		}		public static string RandomGeneratorPrint()		{			string output = "";			for (int row = 0; row < Constants.ROW_COUNT; row++)			{				for (int col = 0; col < Constants.COLUMN_COUNT; col++)				{					Logics.slots_Output = new char[,] { { '1', '1', '1' }, { '1', '1', '1' }, { '1', '1', '1' } };					output += Logics.slots_Output[row, col] + "\t";				}				output += "\n";			}			return output;		}	}}

@@ -34,10 +34,9 @@ namespace RefactorSlotMachine
 
 
                 //Bet Calculation
-                if (playAgain && )
+                if (playAgain)
                 {
                   balance = betAmount - Constants.BET_AMOUNT;
-
                 }
                 else
                 {
