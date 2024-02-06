@@ -47,11 +47,6 @@ namespace RefactorSlotMachine
                 {
                     return bettingOption; // Valid option, return it
                 }
-                else
-                {
-                    UIMethods.InvalidValuePrint();
-                }
-
             }
         }
 
