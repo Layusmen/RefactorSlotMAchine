@@ -43,7 +43,6 @@ namespace RefactorSlotMachine
                 Console.Write("\nPlease choose a betting option (A, H, V, C, D): ");
                 bettingOption = char.ToUpper(Console.ReadKey().KeyChar);
                 Console.WriteLine();
-
                 if (Constants.bettingSelect.Contains(bettingOption))
                 {
                     return bettingOption; // Valid option, return it
