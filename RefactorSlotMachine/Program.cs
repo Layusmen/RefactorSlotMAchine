@@ -45,8 +45,8 @@ namespace RefactorSlotMachine
                 UIMethods.BalanceUpdatePrint(balance);
 
                 //Betting Result.
-                UIMethods.BettingResult();
-                Console.WriteLine(formattedOutput);
+                UIMethods.BettingResultPrint(formattedOutput);
+               
 
                 //play again prompt
                 UIMethods.PlayAgainPrompt();

@@ -342,7 +342,6 @@ namespace RefactorSlotMachine
         /// Check Game Over
         /// </summary>
         /// <param name="balance"></param>
-        
         public static bool CheckGameOver(decimal balance)
         {
             if (balance < Constants.BET_AMOUNT)

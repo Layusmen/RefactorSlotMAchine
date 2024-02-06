@@ -26,7 +26,7 @@ namespace RefactorSlotMachine
         };
 
         /// <summary>
-        /// Yes to Play Again
+        /// Yes to Play Again 
         /// </summary>
         public const char CAPITAL_YES = 'Y';
         public const char SMALL_YES = 'y';
