@@ -19,9 +19,12 @@ namespace RefactorSlotMachine
 
                 //Select option
                 char betSwitch = UIMethods.ChooseBet();
-                
+
+                //Print 
+                //UIMethods.BettingResult();
+                string formattedOutput = Logics.RandomGeneratorPrint();
                 // Check if it is Game Over
-                if(Logics.CheckGameOver(balance))
+                if (Logics.CheckGameOver(balance))
                 {
                     break;
                 }
@@ -30,9 +33,6 @@ namespace RefactorSlotMachine
                 decimal betAmount = Logics.BetProcess(betSwitch, balance);
 
 
-                //Print 
-                //UIMethods.BettingResult();
-                string formattedOutput = Logics.RandomGeneratorPrint();
 
 
                 //Bet Calculation

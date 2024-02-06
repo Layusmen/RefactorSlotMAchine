@@ -354,6 +354,7 @@ namespace RefactorSlotMachine
             return false; // Game can continue
         }
 
+
         /// <summary>
         /// Random Generator Print
         /// </summary>
