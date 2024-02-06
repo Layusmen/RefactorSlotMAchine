@@ -95,15 +95,18 @@ namespace RefactorSlotMachine
 			{
 				return (Constants.FIRST_WIN, Constants.SINGLE);
 			}
-			else if (winCount == 2)
+			if (winCount == 2)
 			{
 				return (Constants.TWO_COMBINE_WIN, Constants.DOUBLE);
 			}
-			else
-			{
+            if(winCount == 3)
+
+            {
 				return (Constants.THREE_COMBINE_WIN, Constants.TRIPPLE);
 			}
-		}
+			return (0, "NoWin");
+
+        }
 
 		/// <summary>
 		/// Vertical Win Check
@@ -353,28 +356,7 @@ namespace RefactorSlotMachine
             return false; // Game can continue
         }
 
-
-        /// <summary>
-        /// Random Generator Print
-        /// </summary>
-        public static void RandomGeneratorPrint1()
-		{
-
-			for (int row = 0; row < Constants.ROW_COUNT; row++)
-			{
-				for (int col = 0; col < Constants.COLUMN_COUNT; col++)
-				{
-					//int randomIndex = randomPickGenerator.Next(slotSymbols.Count);
-					//slots_Output[row, col] = slotSymbols[randomIndex];
-					slots_Output = new char[,] { { '1', '0', 'o' }, { '1', 'a', '1' }, { 'c', 'd', 'e' } };
-					//Console.Write(slots_Output[row, col] + "\t");
-				}
-				Console.WriteLine();
-
-			}
-
-		}
-
+      
 		/// <summary>
 		/// Random Generator Check
 		/// </summary>
@@ -390,7 +372,7 @@ namespace RefactorSlotMachine
                     //int randomIndex = randomPickGenerator.Next(slotSymbols.Count);
                     //slots_Output[row, col] = slotSymbols[randomIndex];
                     
-					slots_Output = new char[,] { { '1', '0', '1' }, { '3', '3', '1' }, { '4', '1', '9' } };
+					slots_Output = new char[,] { { '1', '1', '1' }, { '1', '1', '1' }, { '1', '1', '1' } };
 
 					output += slots_Output[row, col] + "\t";
 				}
