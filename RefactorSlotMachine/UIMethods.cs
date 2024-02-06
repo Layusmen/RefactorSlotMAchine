@@ -70,7 +70,6 @@ namespace RefactorSlotMachine
             return Console.ReadKey().KeyChar == Constants.SMALL_YES || Console.ReadKey().KeyChar == Constants.CAPITAL_YES;
         }
 
-
         /// <summary>
         /// Horizontal Play Message
         /// </summary>
