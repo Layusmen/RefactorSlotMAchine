@@ -379,7 +379,7 @@ namespace RefactorSlotMachine
 		/// Random Generator Check
 		/// </summary>
 		/// <returns></returns>
-		public static string RandomGeneratorPrint()
+		public static string SlotOutputBuilder()
 		{
 			string output = "";
 			for (int row = 0; row < Constants.ROW_COUNT; row++)

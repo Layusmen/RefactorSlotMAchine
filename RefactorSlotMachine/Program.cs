@@ -21,7 +21,7 @@ namespace RefactorSlotMachine
                 char betSwitch = UIMethods.ChooseBet();
 
                 //Random Geneator
-                string formattedOutput = Logics.RandomGeneratorPrint();
+                string formattedOutput = Logics.SlotOutputBuilder();
                 // Check if it is Game Over
                 if (Logics.CheckGameOver(balance))
                 {
