@@ -352,7 +352,10 @@ namespace RefactorSlotMachine
             return false; // Game can continue
         }
 
-      
+        /// <summary>
+		/// Slot Output Builder
+		/// </summary>
+		/// <returns></returns>
         public static char [,] SlotOutputBuilder()
         {
             char[,] slots_Output = new char[Constants.ROW_COUNT, Constants.COLUMN_COUNT];
@@ -363,10 +366,10 @@ namespace RefactorSlotMachine
                 for (int col = 0; col < Constants.COLUMN_COUNT; col++)
                 {
 
-                    //int randomIndex = randomPickGenerator.Next(slotSymbols.Count);
-                    //Program.slots_Output[row, col] = slotSymbols[randomIndex];
+                  int randomIndex = randomPickGenerator.Next(slotSymbols.Count);
+                   Program.slots_Output[row, col] = slotSymbols[randomIndex];
 
-                    Program.slots_Output = new char[,] { { '1', '0', '1' }, { '0', '1', '1' }, { '1', '1', '1' } };
+               //   Program.slots_Output = new char[,] { { '1', '0', '1' }, { '0', '1', '1' }, { '1', '1', '1' } };
 
                 }
                
@@ -374,7 +377,10 @@ namespace RefactorSlotMachine
             return slots_Output;
 
         }
-
+		/// <summary>
+		/// SlotOutPut Format
+		/// </summary>
+		/// <returns></returns>
         public static string FormatSlotOutput()
         {
             string output = "";
