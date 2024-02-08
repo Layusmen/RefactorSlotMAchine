@@ -24,28 +24,7 @@ namespace RefactorSlotMachine
 
 
 
-                static string SlotOutputBuilder()
-                {
-                    string output = "";
-                    for (int row = 0; row < Constants.ROW_COUNT; row++)
-                    {
-                        for (int col = 0; col < Constants.COLUMN_COUNT; col++)
-                        {
-                            char[,] slots_Output = new char[Constants.ROW_COUNT, Constants.COLUMN_COUNT];
-
-                            //int randomIndex = randomPickGenerator.Next(slotSymbols.Count);
-                            //slots_Output[row, col] = slotSymbols[randomIndex];
-
-                            slots_Output = new char[,] { { '1', '1', '1' }, { '1', '1', '1' }, { '1', '1', '1' } };
-
-                            output += slots_Output[row, col] + "\t";
-                        }
-                        output += "\n";
-                    }
-                    return output;
-
-                }
-
+             
                 //Random Generator print
                 string formattedOutput = Logics.SlotOutputBuilder();
 
