@@ -54,13 +54,12 @@ namespace RefactorSlotMachine
         /// Betting Result
         /// </summary>
         /// <returns></returns>
-        public static void PrintBettingResult(string formattedOutput)
+        public static void PrintBettingResult()
         {
             //Display the result
             Console.WriteLine("\nSlot Machine Results:\n");
-            Console.WriteLine(formattedOutput);
+            Console.WriteLine(Logics.FormatSlotOutput());
         }
-
 
         /// <summary>
         /// Play Again Prompt Function

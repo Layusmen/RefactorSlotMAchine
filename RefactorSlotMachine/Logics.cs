@@ -4,11 +4,7 @@ namespace RefactorSlotMachine
 	internal class Logics
 	{
 
-		/// <summary>
-		/// slots_Output
-		/// </summary>
-		public static char[,] slots_Output = new char[Constants.ROW_COUNT, Constants.COLUMN_COUNT];
-
+		
 		/// <summary>
 		/// Random randomPickGenerator
 		/// </summary>
@@ -33,14 +29,14 @@ namespace RefactorSlotMachine
 			// check for a win on a specific horizontal line
 			// set winCount to false 
 			decimal winCount = 0;
-			for (int row = 0; row < slots_Output.GetLength(0); row++)
+			for (int row = 0; row < Program.slots_Output.GetLength(0); row++)
 			{
 				int matchValue = 1;
 
-				for (int column = 1; column < slots_Output.GetLength(1); column++)
+				for (int column = 1; column < Program.slots_Output.GetLength(1); column++)
 				{
 					// Compare the current symbol to the first symbol in the row
-					if (slots_Output[row, 0] == slots_Output[row, column])
+					if (Program.slots_Output[row, 0] == Program.slots_Output[row, column])
 					{
 						matchValue++;
 					}
@@ -50,7 +46,7 @@ namespace RefactorSlotMachine
 					}
 				}
 
-				if (matchValue == slots_Output.GetLength(0))
+				if (matchValue == Program.slots_Output.GetLength(0))
 				{
 					winCount++;
 
@@ -120,14 +116,14 @@ namespace RefactorSlotMachine
 			// set winCount to false 
 			int winCount = 0;
 
-			for (int column = 0; column < slots_Output.GetLength(1); column++)
+			for (int column = 0; column < Program.slots_Output.GetLength(1); column++)
 			{
 				int matchValue = 1;
 
-				for (int row = 1; row < slots_Output.GetLength(0); row++)
+				for (int row = 1; row < Program.slots_Output.GetLength(0); row++)
 				{
 					// Compare the current symbol to the first symbol in the row
-					if (slots_Output[0, column] == slots_Output[row, column])
+					if (Program.slots_Output[0, column] == Program.slots_Output[row, column])
 					{
 						matchValue++;
 					}
@@ -137,7 +133,7 @@ namespace RefactorSlotMachine
 					}
 				}
 
-				if (matchValue == slots_Output.GetLength(0))
+				if (matchValue == Program.slots_Output.GetLength(0))
 				{
 					winCount++;
 
@@ -163,7 +159,7 @@ namespace RefactorSlotMachine
 			bool isMainDiagonalWin = true;
 			for (int i = 1; i < Constants.ROW_COUNT; i++)
 			{
-				if (slots_Output[i, i] != slots_Output[0, 0])
+				if (Program.slots_Output[i, i] != Program.slots_Output[0, 0])
 				{
 					isMainDiagonalWin = false;
 					break;
@@ -174,7 +170,7 @@ namespace RefactorSlotMachine
 			bool isSecondaryDiagonalWin = true;
 			for (int i = 1; i < Constants.ROW_COUNT; i++)
 			{
-				if (slots_Output[i, Constants.ROW_COUNT - 1 - i] != slots_Output[0, Constants.ROW_COUNT - 1])
+				if (Program.slots_Output[i, Constants.ROW_COUNT - 1 - i] != Program.slots_Output[0, Constants.ROW_COUNT - 1])
 				{
 					isSecondaryDiagonalWin = false;
 					break;
@@ -240,9 +236,9 @@ namespace RefactorSlotMachine
 			// Check for a win on a specific vertical line
 			bool verticalCenterWin = true;
 
-			for (int row = 1; row < slots_Output.GetLength(0); row++)
+			for (int row = 1; row < Program.slots_Output.GetLength(0); row++)
 			{   // Compare the current symbol to the previous symbol in the specified column
-				if (slots_Output[row, 1] != slots_Output[0, 1])
+				if (Program.slots_Output[row, 1] != Program.slots_Output[0, 1])
 				{
 					verticalCenterWin = false; // No win on this line
 					break;
@@ -277,11 +273,11 @@ namespace RefactorSlotMachine
 			bool middleHorizontalWin = true;
 
 			// Check for a win on the second horizontal row
-			for (int column = 1; column < slots_Output.GetLength(1); column++)
+			for (int column = 1; column < Program.slots_Output.GetLength(1); column++)
 			{
 
 				// Compare the current symbol to the previous symbol in the specified column
-				if (slots_Output[1, column] != slots_Output[1, 0])
+				if (Program.slots_Output[1, column] != Program.slots_Output[1, 0])
 				{
 					middleHorizontalWin = false;
 					break;
@@ -357,32 +353,41 @@ namespace RefactorSlotMachine
         }
 
       
-		/// <summary>
-		/// Random Generator Check
-		/// </summary>
-		/// <returns></returns>
-		public static string SlotOutputBuilder()
-		{
-			string output = "";
-			for (int row = 0; row < Constants.ROW_COUNT; row++)
-			{
-				for (int col = 0; col < Constants.COLUMN_COUNT; col++)
-				{
-                    char[,] slots_Output = new char[Constants.ROW_COUNT, Constants.COLUMN_COUNT];
+        public static char [,] SlotOutputBuilder()
+        {
+            char[,] slots_Output = new char[Constants.ROW_COUNT, Constants.COLUMN_COUNT];
+
+
+            for (int row = 0; row < Constants.ROW_COUNT; row++)
+            {
+                for (int col = 0; col < Constants.COLUMN_COUNT; col++)
+                {
 
                     //int randomIndex = randomPickGenerator.Next(slotSymbols.Count);
-                    //slots_Output[row, col] = slotSymbols[randomIndex];
+                    //Program.slots_Output[row, col] = slotSymbols[randomIndex];
 
-                    slots_Output = new char[,] { { '1', '1', '1' }, { '1', '1', '1' }, { '1', '1', '1' } };
+                    Program.slots_Output = new char[,] { { '1', '0', '1' }, { '0', '1', '1' }, { '1', '1', '1' } };
 
-					output += slots_Output[row, col] + "\t";
-				}
-				output += "\n";
-			}
-			return output;
+                }
+               
+            }
+            return slots_Output;
 
-		}
+        }
 
+        public static string FormatSlotOutput()
+        {
+            string output = "";
+            for (int row = 0; row < Constants.ROW_COUNT; row++)
+            {
+                for (int col = 0; col < Constants.COLUMN_COUNT; col++)
+                {
+                    output += Program.slots_Output[row, col] + "\t";
 
-	}
+                }
+                output += "\n";
+            }
+            return output;
+        }
+    }
 }

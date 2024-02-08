@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 namespace RefactorSlotMachine
 {
     internal class Program
@@ -17,15 +18,11 @@ namespace RefactorSlotMachine
 
                 //Welcome message
                 UIMethods.PrintWelcome();
-               
                 //Select option
                 char betSwitch = UIMethods.PromptChooseBet();
 
-
-
-             
-                //Random Generator print
-                string formattedOutput = Logics.SlotOutputBuilder();
+                //Random Generator Slot Output Builder
+                char[,] formattedOutput = Logics.SlotOutputBuilder();
 
                 // Check if it is Game Over
                 if (Logics.CheckGameOver(balance))
@@ -50,8 +47,7 @@ namespace RefactorSlotMachine
                 UIMethods.PrintBalanceUpdate(balance);
 
                 //Betting Result.
-                UIMethods.PrintBettingResult(formattedOutput);
-
+                UIMethods.PrintBettingResult();
 
                 //play again prompt
                 playAgain = UIMethods.PromptPlayAgain();
