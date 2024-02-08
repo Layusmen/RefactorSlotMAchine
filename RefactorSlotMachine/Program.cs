@@ -55,7 +55,7 @@ namespace RefactorSlotMachine
 
 
                 //play again prompt
-                UIMethods.PromptPlayAgain();
+                playAgain = UIMethods.PromptPlayAgain();
 
                 // Clear the console for the next round
                 Console.Clear();
