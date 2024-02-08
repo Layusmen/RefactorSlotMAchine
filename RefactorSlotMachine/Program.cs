@@ -3,31 +3,58 @@ namespace RefactorSlotMachine
 {
     internal class Program
     {
+        public static char[,] slots_Output = new char[Constants.ROW_COUNT, Constants.COLUMN_COUNT];
+
         public static void Main(string[] args)
         {
 
             decimal balance = Constants.INITIAL_BALANCE;
 
-
+            
             bool playAgain = true;
             while (playAgain)
             {
                 // decimal updatedBalance;
 
                 //Welcome message
-                UIMethods.WelcomeMessage();
-
+                UIMethods.PrintWelcome();
+               
                 //Select option
-                char betSwitch = UIMethods.ChooseBet();
+                char betSwitch = UIMethods.PromptChooseBet();
 
-                //Random Geneator
+
+
+                static string SlotOutputBuilder()
+                {
+                    string output = "";
+                    for (int row = 0; row < Constants.ROW_COUNT; row++)
+                    {
+                        for (int col = 0; col < Constants.COLUMN_COUNT; col++)
+                        {
+                            char[,] slots_Output = new char[Constants.ROW_COUNT, Constants.COLUMN_COUNT];
+
+                            //int randomIndex = randomPickGenerator.Next(slotSymbols.Count);
+                            //slots_Output[row, col] = slotSymbols[randomIndex];
+
+                            slots_Output = new char[,] { { '1', '1', '1' }, { '1', '1', '1' }, { '1', '1', '1' } };
+
+                            output += slots_Output[row, col] + "\t";
+                        }
+                        output += "\n";
+                    }
+                    return output;
+
+                }
+
+                //Random Generator print
                 string formattedOutput = Logics.SlotOutputBuilder();
+
                 // Check if it is Game Over
                 if (Logics.CheckGameOver(balance))
                 {
                     break;
                 }
-                
+
                 //Check for a win on all the lines
                 decimal betAmount = Logics.BetProcess(betSwitch, balance);
 
@@ -42,20 +69,18 @@ namespace RefactorSlotMachine
                 }
 
                 //updated balance
-                UIMethods.BalanceUpdatePrint(balance);
+                UIMethods.PrintBalanceUpdate(balance);
 
                 //Betting Result.
-                UIMethods.BettingResultPrint(formattedOutput);
-               
+                UIMethods.PrintBettingResult(formattedOutput);
+
 
                 //play again prompt
-                UIMethods.PlayAgainPrompt();
+                UIMethods.PromptPlayAgain();
 
                 // Clear the console for the next round
                 Console.Clear();
             }
-
-
 
         }
     }
