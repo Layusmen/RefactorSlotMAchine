@@ -72,6 +72,7 @@ namespace RefactorSlotMachine
             return input == Constants.SMALL_YES || input == Constants.CAPITAL_YES;
         }
 
+        
         /// <summary>
         /// Horizontal Play Message
         /// </summary>

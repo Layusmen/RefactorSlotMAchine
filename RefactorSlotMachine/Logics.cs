@@ -12,7 +12,7 @@ namespace RefactorSlotMachine
 		/// <summary>
 		/// Random randomPickGenerator
 		/// </summary>
-		 public readonly static Random randomPickGenerator = new Random();
+		public readonly static Random randomPickGenerator = new Random();
 
 		/// <summary>
 		/// slotSymbols

@@ -10,7 +10,6 @@ namespace RefactorSlotMachine
 
             decimal balance = Constants.INITIAL_BALANCE;
 
-            
             bool playAgain = true;
             while (playAgain)
             {
