@@ -3,8 +3,6 @@ namespace RefactorSlotMachine
 {
 	internal class Logics
 	{
-
-		
 		/// <summary>
 		/// Random randomPickGenerator
 		/// </summary>
@@ -15,16 +13,13 @@ namespace RefactorSlotMachine
 		/// </summary>
 		public static List<char> slotSymbols = new List<char> { 'A', '1', '5', '7', '$', 'M', '8', '9', '!', '#', 'Q', '&', 'C', 'S', 'Y', 'V', 'W', 'R', 'L', 'F' };
 
-
 		/// <summary>
 		/// Horizontal Win Check
 		/// </summary>
 		/// <returns></returns>
 		public static decimal HorizontalWin()
 		{
-
 			decimal balance = 0;
-
 			UIMethods.PrintHorizontalPlay();
 			// check for a win on a specific horizontal line
 			// set winCount to false 
@@ -144,7 +139,6 @@ namespace RefactorSlotMachine
 			return result;
 		}
 
-
 		/// <summary>
 		/// Diagonal Win CHeck
 		/// </summary>
@@ -179,8 +173,7 @@ namespace RefactorSlotMachine
 
 			return CheckDiagonalWin(isSecondaryDiagonalWin, isMainDiagonalWin);
 		}
-
-
+		
 		/// <summary>
 		/// Check Diagonal Win Logic
 		/// </summary>
@@ -222,7 +215,6 @@ namespace RefactorSlotMachine
 			}
 			return balance;
 		}
-
 
 		/// <summary>
 		/// Vertical Center Win Check
