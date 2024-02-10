@@ -8,9 +8,8 @@
     - (V) Play horizontal center line only for $2: Win $30 for a winning combination.
     - (C) Play vertical center line only for $2: Win $30 for a winning combination.
     - (D) Play diagonals for $2: Win $20 for any winning diagonal and $60 for both winning diagonals.
-3. Spin the reels: Press Enter after choosing your bet.
-5. Claim your winnings: If your chosen symbols align according to the payout table for your bet option, you'll win! The amount you win will be displayed on the screen.
-6. Repeat! Play again by choosing another bet and spinning the reels.
+3. Claim your winnings: If your chosen symbols align according to the payout table for your bet option, you'll win! The amount you win will be displayed on the screen.
+4. Repeat! Play again by choosing another bet.
 
 ## Technical Details:
 Programming language: C#
