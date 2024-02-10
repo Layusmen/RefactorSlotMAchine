@@ -10,7 +10,6 @@ namespace RefactorSlotMachine
         public const char HOR_CENTER_LINE = 'V';
         public const char VER_CENTER_LINE = 'C';
         public const char DIAGONAL_LINE = 'D';
-        
 
         // Create the list
         /// <summary>
@@ -55,7 +54,5 @@ namespace RefactorSlotMachine
         public const decimal CENTER_WIN = 30.00M;
         public const decimal THREE_COMBINE_WIN = 60.00M;
         public const decimal SECOND_WIN = 10.00M;
-   
-        
     }
 }

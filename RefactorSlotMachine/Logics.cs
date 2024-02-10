@@ -74,7 +74,6 @@ namespace RefactorSlotMachine
 			return balance;
 		}
 
-
 		/// <summary>
 		/// Calculate Win Details
 		/// </summary>
