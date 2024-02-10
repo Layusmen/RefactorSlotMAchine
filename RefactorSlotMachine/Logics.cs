@@ -11,7 +11,7 @@ namespace RefactorSlotMachine
 		public readonly static Random randomPickGenerator = new Random();
 
 		/// <summary>
-		/// slotSymbols
+		/// slot Symbols
 		/// </summary>
 		public static List<char> slotSymbols = new List<char> { 'A', '1', '5', '7', '$', 'M', '8', '9', '!', '#', 'Q', '&', 'C', 'S', 'Y', 'V', 'W', 'R', 'L', 'F' };
 
@@ -302,10 +302,8 @@ namespace RefactorSlotMachine
 		/// </summary>
 		/// <param name="betSwitch"></param>
 		/// <param name="balance"></param>
-
 		public static decimal BetProcess(int betSwitch, decimal balance)
 		{
-			
 				switch (betSwitch)
 				{
 					case Constants.HORIZONTAL_LINE:
@@ -329,13 +327,6 @@ namespace RefactorSlotMachine
                
             return balance;
         }
-
-        /// <summary>
-        /// BEtting Validity Check
-        /// </summary>
-        /// <param name="bettingOption"></param>
-        /// <returns></returns>
-
 
         /// <summary>
         /// Check Game Over
