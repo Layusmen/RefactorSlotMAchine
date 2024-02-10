@@ -7,14 +7,10 @@ namespace RefactorSlotMachine
 
         public static void Main(string[] args)
         {
-
             decimal balance = Constants.INITIAL_BALANCE;
-
             bool playAgain = true;
             while (playAgain)
             {
-                // decimal updatedBalance;
-
                 //Welcome message
                 UIMethods.PrintWelcome();
                 //Select option
