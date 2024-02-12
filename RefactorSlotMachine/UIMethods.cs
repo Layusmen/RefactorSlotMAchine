@@ -33,11 +33,8 @@ namespace RefactorSlotMachine
         /// <returns></returns>
         public static char PromptChooseBet()
         {
-          
-                char bettingOption;
-          
-            //Check if the betting option is valid		   
-
+            char bettingOption;
+            //Check if the betting option is valid
             while (true)
             {
                 Console.Write("\nPlease choose a betting option (A, H, V, C, D): ");
@@ -45,7 +42,7 @@ namespace RefactorSlotMachine
                 Console.WriteLine();
                 if (Constants.bettingSelect.Contains(bettingOption))
                 {
-                    return bettingOption; // Valid option, return it
+                    return bettingOption;
                 }
             }
         }
@@ -92,7 +89,6 @@ namespace RefactorSlotMachine
         /// </summary>
         public static void PrintDiagonalPlay()
         {
-
             Console.WriteLine("Play diagonals with $2: Earn $20 for any winning combination, $30 for both.");
         }
 
@@ -109,7 +105,6 @@ namespace RefactorSlotMachine
         /// </summary>
         public static void PrintHorizontalCenterPlay()
         {
-
             Console.WriteLine("\nPlay horizontal center line alone with $2: Earn $30.");
         }
 
@@ -143,7 +138,6 @@ namespace RefactorSlotMachine
         public static void PrintInvalidValue()
         {
             Console.WriteLine("\n\nInvalid value inserted, Try Again!");
-
         }
 
         /// <summary>

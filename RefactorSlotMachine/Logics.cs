@@ -126,13 +126,10 @@ namespace RefactorSlotMachine
 						break;
 					}
 				}
-
 				if (matchValue == Program.slots_Output.GetLength(0))
 				{
 					winCount++;
-
 				}
-
 			}
 			decimal result = HandleWinResults(winCount, balance);
 			return result;
@@ -260,13 +257,10 @@ namespace RefactorSlotMachine
 		{
 			decimal balance = 0;
 			UIMethods.PrintHorizontalCenterPlay();
-
 			bool middleHorizontalWin = true;
-
 			// Check for a win on the second horizontal row
 			for (int column = 1; column < Program.slots_Output.GetLength(1); column++)
 			{
-
 				// Compare the current symbol to the previous symbol in the specified column
 				if (Program.slots_Output[1, column] != Program.slots_Output[1, 0])
 				{
@@ -315,7 +309,6 @@ namespace RefactorSlotMachine
 				default:
 						break;
 				}
-               
             return balance;
         }
 
@@ -330,7 +323,6 @@ namespace RefactorSlotMachine
                 UIMethods.PrintFundInsufficient();
                 return true; // Game over
             }
-
             return false; // Game can continue
         }
 
@@ -342,23 +334,20 @@ namespace RefactorSlotMachine
         {
             char[,] slots_Output = new char[Constants.ROW_COUNT, Constants.COLUMN_COUNT];
 
-
             for (int row = 0; row < Constants.ROW_COUNT; row++)
             {
                 for (int col = 0; col < Constants.COLUMN_COUNT; col++)
                 {
+					int randomIndex = randomPickGenerator.Next(slotSymbols.Count);
+					Program.slots_Output[row, col] = slotSymbols[randomIndex];
 
-                // int randomIndex = randomPickGenerator.Next(slotSymbols.Count);
-               //    Program.slots_Output[row, col] = slotSymbols[randomIndex];
-
-               Program.slots_Output = new char[,] { { '1', '0', '1' }, { '0', '1', '1' }, { '1', '1', '1' } };
-
+					//Uncomment to text if the code runs fine without using random char generator.
+					//Program.slots_Output = new char[,] { { '1', '0', '1' }, { '0', '1', '1' }, { '1', '1', '1' } };
                 }
-               
             }
             return slots_Output;
-
         }
+
 		/// <summary>
 		/// SlotOutPut Format
 		/// </summary>
@@ -371,7 +360,6 @@ namespace RefactorSlotMachine
                 for (int col = 0; col < Constants.COLUMN_COUNT; col++)
                 {
                     output += Program.slots_Output[row, col] + "\t";
-
                 }
                 output += "\n";
             }

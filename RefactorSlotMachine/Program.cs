@@ -24,7 +24,6 @@ namespace RefactorSlotMachine
                 {
                     break;
                 }
-
                 //Check for a win on all the lines
                 decimal betAmount = Logics.BetProcess(betSwitch, balance);
 
