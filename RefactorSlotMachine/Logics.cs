@@ -184,19 +184,19 @@ namespace RefactorSlotMachine
 
 				// Handle the case when there's a win on both diagonals
 				UIMethods.PrintWinDetection();
-				balance += Constants.CENTER_WIN; // Assuming $20 for a win on the first row
+				balance += Constants.CENTER_WIN; 
 			}
 			else if (isMainDiagonalWin)
 			{
 				UIMethods.PrintWinDetection();
-				balance += Constants.FIRST_WIN; // Assuming $20 for a win on the first row
+				balance += Constants.FIRST_WIN;
 
 			}
 
 			else if (isSecondaryDiagonalWin)
 			{
 				UIMethods.PrintWinDetection();
-				balance += Constants.FIRST_WIN; // Assuming $20 for a win on the first row
+				balance += Constants.FIRST_WIN;
 			}
 			else if (!isSecondaryDiagonalWin && !isMainDiagonalWin)
 			{
@@ -207,7 +207,7 @@ namespace RefactorSlotMachine
 			else
 			{
 				UIMethods.PrintNoWin();
-				balance -= Constants.BET_AMOUNT; // Subtract the bet amount from the balance if no win is detected on any of the diagonal lines.
+				balance -= Constants.BET_AMOUNT;
 			}
 			return balance;
 		}
@@ -228,7 +228,7 @@ namespace RefactorSlotMachine
 			{   // Compare the current symbol to the previous symbol in the specified column
 				if (Program.slots_Output[row, 1] != Program.slots_Output[0, 1])
 				{
-					verticalCenterWin = false; // No win on this line
+					verticalCenterWin = false;
 					break;
 				}
 			}
@@ -272,7 +272,7 @@ namespace RefactorSlotMachine
 			{
 				UIMethods.PrintMiddleHorizontalPlay();
 
-				balance += Constants.FIRST_WIN; // Assuming $20 for a win on the first row
+				balance += Constants.FIRST_WIN; 
 			}
 			else
 			{
@@ -321,9 +321,9 @@ namespace RefactorSlotMachine
             if (balance < Constants.BET_AMOUNT)
             {
                 UIMethods.PrintFundInsufficient();
-                return true; // Game over
+                return true; 
             }
-            return false; // Game can continue
+            return false; 
         }
 
         /// <summary>
